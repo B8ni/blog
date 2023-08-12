@@ -10,6 +10,8 @@ website:
         href: https://github.com/B8ni
       - icon: twitter
         href: https://twitter.com/bot_fra
+  favicon: favicon.ico
+
 format:
   html:
     theme: cosmo
