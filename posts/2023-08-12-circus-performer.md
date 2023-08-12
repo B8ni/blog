@@ -11,7 +11,7 @@ title: Be Like a Circus Performer
 Running a startup successfully often requires adopting the mindset of a circus performer.
 Imagine everyone coming to watch a show, where the same performer who wows the audience with a somersault is the one who took your ticket and ushered you to your seat.
 
-Being a generalist is often the best approach **— and sometimes, the only road to success**.
+Being a generalist is often the best approach — **and sometimes, the only road to success**.
 
 If the term ~~generalist~~ doesn't resonate with you, think of yourself as a **versatile circus performer**.
 
