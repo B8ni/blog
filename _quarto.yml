@@ -14,6 +14,7 @@ format:
   html:
     theme: cosmo
     css: styles.css
+    fontsize: 1.22em
 
 execute:
   freeze: auto
