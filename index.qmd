@@ -1,0 +1,14 @@
+---
+title: "Notes and ideas (in many cases, incomplete or broken)"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: false
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+---
+
+

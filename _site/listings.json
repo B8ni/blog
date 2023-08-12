@@ -1,0 +1,17 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/2023-01-24-reading-book-2023.html",
+      "/posts/2022-12-28-goals-of-2023.html",
+      "/posts/2022-12-13-dont-afraid-to-build.html",
+      "/posts/2022-12-13-fallen-empire.html",
+      "/posts/2022-12-12-neural-network.html",
+      "/posts/2022-12-02-artificial-neurons.html",
+      "/posts/random-forest-guy/2022-11-17-the-random-forest-guy.html",
+      "/posts/confusion-matrix/2022-11-15-confusion-matrix.html",
+      "/posts/aluminium-scrap-box/2022-10-26-aluminium-scraps-box-weight-random-forest-post.html",
+      "/posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html"
+    ]
+  }
+]

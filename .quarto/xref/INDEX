@@ -1,0 +1,56 @@
+{
+  "about.qmd": {
+    "about.html": "b79dc424"
+  },
+  "index.qmd": {
+    "index.html": "0d19d870"
+  },
+  "posts/2022-12-12-neural-network.md": {
+    "2022-12-12-neural-network.html": "5ac17ae1"
+  },
+  "posts/2022-10-26-aluminium-scraps-box-weight-random-forest-post.md": {
+    "2022-10-26-aluminium-scraps-box-weight-random-forest-post.html": "102c5f1e"
+  },
+  "posts/2022-12-13-dont-afraid-to-build.md": {
+    "2022-12-13-dont-afraid-to-build.html": "9f16836f"
+  },
+  "posts/2023-01-24-reading-book-2023.md": {
+    "2023-01-24-reading-book-2023.html": "6aff16b7"
+  },
+  "posts/2022-12-28-goals-of-2023.md": {
+    "2022-12-28-goals-of-2023.html": "4d49c1c4"
+  },
+  "posts/2022-12-13-fallen-empire.md": {
+    "2022-12-13-fallen-empire.html": "1fc43732"
+  },
+  "posts/2022-12-02-artificial-neurons.md": {
+    "2022-12-02-artificial-neurons.html": "43ffadb4"
+  },
+  "posts/welcome/index.qmd": {
+    "index.html": "cf10cddb"
+  },
+  "posts/2022-11-15-confusion-matrix.md": {
+    "2022-11-15-confusion-matrix.html": "a7f7429e"
+  },
+  "posts/post-with-code/index.qmd": {
+    "index.html": "90eb51c6"
+  },
+  "posts/2022-08-07-fail-learning-ai-post.md": {
+    "2022-08-07-fail-learning-ai-post.html": "3e540483"
+  },
+  "posts/2022-11-17-the-random-forest-guy.md": {
+    "2022-11-17-the-random-forest-guy.html": "83ebcf31"
+  },
+  "posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.md": {
+    "2022-08-07-fail-learning-ai-post.html": "896ca615"
+  },
+  "posts/aluminium-scrap-box/2022-10-26-aluminium-scraps-box-weight-random-forest-post.md": {
+    "2022-10-26-aluminium-scraps-box-weight-random-forest-post.html": "a8a1d0e6"
+  },
+  "posts/random-forest-guy/2022-11-17-the-random-forest-guy.md": {
+    "2022-11-17-the-random-forest-guy.html": "c4536353"
+  },
+  "posts/confusion-matrix/2022-11-15-confusion-matrix.md": {
+    "2022-11-15-confusion-matrix.html": "a5a9f889"
+  }
+}

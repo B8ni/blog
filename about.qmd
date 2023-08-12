@@ -1,0 +1,16 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/bot_fra
+    - icon: github
+      text: Github
+      href: https://github.com/B8ni
+
+---
+
+### There’s nothing to say about me. I’m another human being, like you.

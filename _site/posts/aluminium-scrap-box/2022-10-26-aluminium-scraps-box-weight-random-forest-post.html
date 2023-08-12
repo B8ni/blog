@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Francesco Bottoni">
+<meta name="dcterms.date" content="2022-10-26">
+<meta name="description" content="Practical use case of Random Forest in Industrial environment.">
+
+<title>frabot - How Random Forest Can Empower A Plant</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">frabot</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/B8ni" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/bot_fra" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">How Random Forest Can Empower A Plant</h1>
+                  <div>
+        <div class="description">
+          Practical use case of Random Forest in Industrial environment.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">fastai</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Francesco Bottoni </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 26, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#preamble" id="toc-preamble" class="nav-link active" data-scroll-target="#preamble">Preamble</a>
+  <ul class="collapse">
+  <li><a href="#why-predicting-scraps-boxes-weight" id="toc-why-predicting-scraps-boxes-weight" class="nav-link" data-scroll-target="#why-predicting-scraps-boxes-weight">Why Predicting Scraps Boxes Weight?</a></li>
+  </ul></li>
+  <li><a href="#first-round" id="toc-first-round" class="nav-link" data-scroll-target="#first-round">First Round</a>
+  <ul class="collapse">
+  <li><a href="#preprocessing" id="toc-preprocessing" class="nav-link" data-scroll-target="#preprocessing">Preprocessing</a></li>
+  <li><a href="#fitting" id="toc-fitting" class="nav-link" data-scroll-target="#fitting">Fitting</a></li>
+  <li><a href="#out-of-bag-error" id="toc-out-of-bag-error" class="nav-link" data-scroll-target="#out-of-bag-error">Out Of Bag Error</a></li>
+  <li><a href="#intermediate-result" id="toc-intermediate-result" class="nav-link" data-scroll-target="#intermediate-result">Intermediate Result</a></li>
+  </ul></li>
+  <li><a href="#second-round" id="toc-second-round" class="nav-link" data-scroll-target="#second-round">Second Round</a>
+  <ul class="collapse">
+  <li><a href="#feature-importances" id="toc-feature-importances" class="nav-link" data-scroll-target="#feature-importances">Feature Importances</a></li>
+  <li><a href="#redundant-features" id="toc-redundant-features" class="nav-link" data-scroll-target="#redundant-features">Redundant Features</a></li>
+  <li><a href="#intermediate-result-1" id="toc-intermediate-result-1" class="nav-link" data-scroll-target="#intermediate-result-1">Intermediate Result</a></li>
+  </ul></li>
+  <li><a href="#third-round" id="toc-third-round" class="nav-link" data-scroll-target="#third-round">Third Round</a>
+  <ul class="collapse">
+  <li><a href="#out-of-domain-data" id="toc-out-of-domain-data" class="nav-link" data-scroll-target="#out-of-domain-data">Out-of-Domain Data</a></li>
+  <li><a href="#intermediate-result-2" id="toc-intermediate-result-2" class="nav-link" data-scroll-target="#intermediate-result-2">Intermediate Result</a></li>
+  </ul></li>
+  <li><a href="#final-round" id="toc-final-round" class="nav-link" data-scroll-target="#final-round">Final Round</a>
+  <ul class="collapse">
+  <li><a href="#result" id="toc-result" class="nav-link" data-scroll-target="#result">Result</a></li>
+  </ul></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s Next?</a></li>
+  <li><a href="#open-points" id="toc-open-points" class="nav-link" data-scroll-target="#open-points">Open Points</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p><img src="forrest-gamp.png" title="Forrest Gump in a Random Forest" class="img-fluid"></p>
+<section id="preamble" class="level2">
+<h2 class="anchored" data-anchor-id="preamble">Preamble</h2>
+<p>While the entire world is totally captured by Stable Diffusion, I’m experimenting <strong>randomly into the forest of Random Forest</strong>. Here my 2 cents after about 60+ hours of fighting against Random Forest. Actually <a href="https://en.wikipedia.org/wiki/Forrest_Gump">Forrest</a> is winning the game.</p>
+<section id="why-predicting-scraps-boxes-weight" class="level3">
+<h3 class="anchored" data-anchor-id="why-predicting-scraps-boxes-weight">Why Predicting Scraps Boxes Weight?</h3>
+<p>It’s hard to fight entropy in my home.</p>
+<p>It’s exponentially hard to fight entropy in a plant, in an Aluminium plant precisely.</p>
+<p>The factory would gain lots of benefits when scraps are segregated, weighted and labeled in the right way<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. <strong>Better the process and higher the impact on the revenue of the company</strong> (true story).</p>
+<p>The weighting process is simple: take the box, put it on an industrial scale, get the weight and repeat.</p>
+<p>The weighting process, although heavily based on an inductive flow, it’s not enough. The operators have still room of errors. How can I solve this problem, without spending lot’s of money? Wrong answers only: <strong>Random Forest is the answer</strong>.</p>
+<p>I concluded that scraps box belongs to a specific set of weights: from 0 (no box) up to 1010 KG. Simply a set of <code>10</code> boxes. It brings to a problem to solve: <strong>classification problem</strong>.</p>
+<p>Structured data + classification problem = <code>RandomForestClassifier</code>.</p>
+<p><img src="scrap_box.jpg" title="Example of Aluminium Scrap Box" class="img-fluid"></p>
+</section>
+</section>
+<section id="first-round" class="level2">
+<h2 class="anchored" data-anchor-id="first-round">First Round</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Dataset</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Random Forest Classifier</td>
+<td>CSV file, 82k rows and 33 columns.</td>
+</tr>
+</tbody>
+</table>
+<p>The dataset has been created by joying most interesting tables, adding intentionally duplicated or closely correlated columns. May increase the noise or may drive to a better prediction?</p>
+<section id="preprocessing" class="level3">
+<h3 class="anchored" data-anchor-id="preprocessing">Preprocessing</h3>
+<p>Since I already worked with this data, I found a subtle feature, which is a calculated field where would create lots of troubles in production environment. <code>net_weight</code> is accused of Data Leakage<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> so I firstly dropped it.</p>
+<p>Obviously, Data Leakage is an issue faced later on experimentation but, IMHO, earlier you find and better it is. It’s mean you have a good understanding of data.</p>
+<p>Via <code>Categorify</code>, <code>FillMissing</code>, <code>cont_cat_split</code> and <code>RandomSplitter</code> functions, the data is ready to be fitted.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastai.tabular.<span class="bu">all</span> <span class="im">import</span> Categorify, FillMissing, cont_cat_split, RandomSplitter</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>dep <span class="op">=</span> <span class="st">"tare_weight"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop(<span class="st">"net_weight"</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>procs <span class="op">=</span> [Categorify, FillMissing]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cont,cat <span class="op">=</span> cont_cat_split(df, <span class="dv">1</span>, dep_var<span class="op">=</span>dep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>splits <span class="op">=</span> RandomSplitter(valid_pct<span class="op">=</span><span class="fl">0.25</span>, seed<span class="op">=</span><span class="dv">42</span>)(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>I think <code>cont_cat_split</code> is a nice function to spend few seconds with. Going to <a href="https://github.com/fastai/fastai/blob/master/fastai/tabular/core.py#L84">its source code</a>, I can see how genuinely the continuous and categorical variables are managed:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cont_cat_split(df, max_card<span class="op">=</span><span class="dv">20</span>, dep_var<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"Helper function that returns column names of cont and cat variables from given `df`."</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    cont_names, cat_names <span class="op">=</span> [], []</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> label <span class="kw">in</span> df:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> label <span class="kw">in</span> L(dep_var): <span class="cf">continue</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ((pd.api.types.is_integer_dtype(df[label].dtype) <span class="kw">and</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            df[label].unique().shape[<span class="dv">0</span>] <span class="op">&gt;</span> max_card) <span class="kw">or</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            pd.api.types.is_float_dtype(df[label].dtype)):</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>            cont_names.append(label)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: cat_names.append(label)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cont_names, cat_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For every column in dataframe, if it has more then 20 elements or it’s a float, appends to continuous, otherwise categorical. I’ve no experience with FastAI API, but I suppose the library is full of such elegant and simple way to manage complex data and task.</p>
+<p>Once pre-processing step is completed, the dataframe is wrapped into a <code>TabularPandas</code>. <code>TabularPandas</code> is an object. It’s a simple <code>DataFrame</code> wrapper with transforms. Transforms are functions which organize the data in an optimal format.</p>
+<blockquote class="blockquote">
+<p>Machine learning models are only as good as the data that is used to train them.</p>
+</blockquote>
+<p>Better data format, better generalization.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastai.tabular.<span class="bu">all</span> <span class="im">import</span> TabularPandas </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>to <span class="op">=</span> TabularPandas(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    df, procs, cat, cont, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    y_names<span class="op">=</span>dep, splits<span class="op">=</span>splits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>to.train.xs.iloc[:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221024142446.png" class="img-fluid"></p>
+<p>Now, save and train.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastai.tabular.<span class="bu">all</span> <span class="im">import</span> save_pickle</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>save_pickle(<span class="st">'to.pkl'</span>,to)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="fitting" class="level3">
+<h3 class="anchored" data-anchor-id="fitting">Fitting</h3>
+<p>Jeremy has developed a function which wraps <code>RandomForestClassifier</code>. It turns useful later to apply some tuning.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastai.tabular.<span class="bu">all</span> <span class="im">import</span> load_pickle</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>load_pickle(<span class="st">'to.pkl'</span>, to)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rf(xs, y, n_estimators<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>       max_features<span class="op">=</span><span class="fl">0.5</span>, min_samples_leaf<span class="op">=</span><span class="dv">5</span>, <span class="op">**</span>kwargs):</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> RandomForestClassifier(n_jobs<span class="op">=-</span><span class="dv">1</span>, n_estimators<span class="op">=</span>n_estimators,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        max_features<span class="op">=</span>max_features,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        min_samples_leaf<span class="op">=</span>min_samples_leaf, oob_score<span class="op">=</span><span class="va">True</span>).fit(xs, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> rf(xs, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A good error metrics, to understand what’s going on, is a simple <code>mean_absolute_error</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mean_absolute_error(m.predict(xs), y), mean_absolute_error(m.predict(valid_xs), valid_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221024142733.png" class="img-fluid"></p>
+<p>What’s <code>mean_absolute_error</code>? Going to the <a href="https://github.com/scikit-learn/scikit-learn/blob/36958fb24/sklearn/metrics/_regression.py#L141">source code of scikit-learn</a>, I found line which calculate MAE:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>np.average(np.<span class="bu">abs</span>(y_pred <span class="op">-</span> y_true), weights<span class="op">=</span>sample_weight, axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It means: 1. calculate the delta between <code>(y_pred - y_true)</code> 2. take the absolute value <code>np.abs</code> of the whole rows <code>axis=0</code> 3. finally calculate the average with <code>np.average</code> function</p>
+<p>Nothing to add, simple enough.</p>
+</section>
+<section id="out-of-bag-error" class="level3">
+<h3 class="anchored" data-anchor-id="out-of-bag-error">Out Of Bag Error</h3>
+<p>In addition to <code>mean_absolute_error</code>s, I have to keep an eye on <code>oob_score_</code> attribute which returns the <strong>accuracy of predictions</strong> on the <strong>residual rows scrapped during the training</strong>. Obviously higher the score better the generalization on validation set.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>m.oob_score_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221025160903.png" class="img-fluid"></p>
+<p>There’s so much resources where explain acutely and precisely what the hell OOB is. I’m not the right person to do that. To simplify the definition I’ve impressed in my mind the following raccomandation by Jeremy: &gt; My intuition for this is that, since every tree was trained with a different randomly selected subset of rows, out-of-bag error is a little like imagining that every tree therefore also has its own validation set. That validation set is simply the rows that were not selected for that tree’s training.</p>
+</section>
+<section id="intermediate-result" class="level3">
+<h3 class="anchored" data-anchor-id="intermediate-result">Intermediate Result</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Round</th>
+<th>OOB Score</th>
+<th>MAE Training set</th>
+<th>MAE Validation set</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1</strong></td>
+<td><strong><code>0.709</code></strong></td>
+<td><strong><code>47.06</code></strong></td>
+<td><strong><code>73.49</code></strong></td>
+</tr>
+</tbody>
+</table>
+<p><code>47.06</code> and <code>73.49</code> are just numbers. But what does it mean? I have achieved, via a simple <code>RandomForestClassifier</code> with <code>100</code> trees (n_estimators), an average of: - <code>47.06</code> KG of error on training set - <code>73.49</code> KG of error on validation set</p>
+<p>And an accuracy of <code>0.709</code> on the residual data not included in the fitting step.</p>
+<p>It’s clear there are multiple goals to try to achieve. A good trade off could be the following chain: <code>small_enough_error &gt; stability &gt; maintainability</code></p>
+<p>The next steps I’m going to walk, aims to improve the above chain.</p>
+</section>
+</section>
+<section id="second-round" class="level2">
+<h2 class="anchored" data-anchor-id="second-round">Second Round</h2>
+<p><code>RandomForest</code> is composed by multiples <code>DecisionTrees</code>. <code>DecisionTrees</code> are highly interpretable, so it’s time to investigate the data: 1. analyzing the most important columns, AKA <code>feature_importances_</code> 2. analyzing the prediction behavior for each row, AKA <code>treeinterpreter</code> 3. finding redundant columns, AKA <code>cluster_columns</code> 4. analyzing prediction confidence of the model, AKA <code>std</code> of each tree prediction 5. analyzing the relationship between independent variables and dependent variable, AKA <code>partial_dependece</code> 6. finding out of domain data, AKA extrapolation problem 7. analyzing where most wrong predictions go, AKA <code>confusion_matrix</code></p>
+<section id="feature-importances" class="level3">
+<h3 class="anchored" data-anchor-id="feature-importances">Feature Importances</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rf_feat_importance(m, df):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame({<span class="st">'cols'</span>:df.columns, <span class="st">'imp'</span>:m.feature_importances_}</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                       ).sort_values(<span class="st">'imp'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fi <span class="op">=</span> rf_feat_importance(m, xs)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>fi[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221024145132.png" class="img-fluid"></p>
+<p>According to the above table: - the box weight prediction is mainly influenced by <code>weight</code> itself<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Sounds reasonable; - <code>id_machine</code>, in other words the machine which generates scraps, is the second most important indicator of box weight prediction. Sounds reasonable as well; - <code>id_machine_article_description</code> is the combination between <code>id_machine</code>, <code>article</code> and <code>description_machine</code>, where <code>article</code> is the thickness range of scarps (Ex.: from 0.5mm to 0.25mm); - percentage of <code>id</code> and <code>timestamp</code> is too similar. Maybe, periodically, I can expect a specific type of scraps? - <code>code_machine</code> is the short name of machine; - <code>last_name</code>, the operator, contributes to the box weight prediction as well. Maybe some operators are more diligent then others? - <code>description_machine</code> is extended name of machine;</p>
+<p>Everything sounds reasonable so it seems I’ve discovered nothing so useful.</p>
+<p>Let’s visualize <code>feature_importances_</code> columns.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_fi(fi):</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fi.plot(<span class="st">'cols'</span>, <span class="st">'imp'</span>, <span class="st">'barh'</span>, figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">7</span>), legend<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>plot_fi(fi[:<span class="dv">30</span>])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221024161156.png" class="img-fluid"></p>
+<p>Now let’s remove from training and validation sets features which tend to <code>0</code> .</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fi <span class="op">=</span> fi[fi[<span class="st">"imp"</span>] <span class="op">&lt;</span> <span class="fl">0.002</span>]</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>filtered_xs <span class="op">=</span> xs.drop(fi[<span class="st">"cols"</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>filtered_valid_xs <span class="op">=</span> valid_xs.drop(fi[<span class="st">"cols"</span>], axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then fitting again the model and check the error rate (<code>mean_absolute_error</code> and <code>oob_score_</code>).</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> rf(filtered_xs, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>mean_absolute_error(m.predict(filtered_xs), y), mean_absolute_error(m.predict(filtered_valid_xs), valid_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221024161755.png" class="img-fluid"></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>m.oob_score_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221025161630.png" class="img-fluid"></p>
+<p>Has been achieved few improvements: - <code>mean_absolute_error</code> on training set is smaller: from <code>47.06</code> to <code>46.78</code>; - <code>mean_absolute_error</code> on validation set is smaller: from <code>73.49</code> to <code>73.47</code>; - <code>oob_score_</code> stable: from <code>0.709</code> to <code>0.708</code> - features reduced: from 33 to 25.</p>
+<p>Now, let’s hunt redundant features.</p>
+</section>
+<section id="redundant-features" class="level3">
+<h3 class="anchored" data-anchor-id="redundant-features">Redundant Features</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># https://stackoverflow.com/questions/17778394/list-highest-correlation-pairs-from-a-large-correlation-matrix-in-pandas</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> corr_filter(x: pd.DataFrame, bound: <span class="bu">float</span>):</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    corr <span class="op">=</span> x.corr()</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    x_filtered <span class="op">=</span> corr[((corr <span class="op">&gt;=</span> bound) <span class="op">|</span> (corr <span class="op">&lt;=</span> <span class="op">-</span>bound)) <span class="op">&amp;</span> (corr <span class="op">!=</span><span class="fl">1.000</span>)]</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    x_flattened <span class="op">=</span> x_flattened.unstack().sort_values().drop_duplicates()</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x_flattened</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>corr_filter(filtered_xs, <span class="fl">.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221025101554.png" class="img-fluid"> Giving a threshold of <code>0.8</code>, function will return set of elements highly correlated with a score from <code>0.8</code> to <code>0.9999</code>.</p>
+<p>For a better understanding, worth to visualize them.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># https://stackoverflow.com/questions/17778394/list-highest-correlation-pairs-from-a-large-correlation-matrix-in-pandas</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sn</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>xs_corr <span class="op">=</span> filtered_xs.corr()</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>compressed_xs <span class="op">=</span> xs_corr[((xs_corr <span class="op">&gt;=</span> <span class="fl">.5</span>) <span class="op">|</span> (xs_corr <span class="op">&lt;=</span> <span class="op">-</span><span class="fl">.5</span>)) <span class="op">&amp;</span> (xs_corr <span class="op">!=</span><span class="fl">1.000</span>)]</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">30</span>,<span class="dv">10</span>))</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>sn.heatmap(compressed_xs, annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">"Reds"</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221024163716.png" class="img-fluid"></p>
+<p>An alternative to <code>heatmap</code> is the helper function <code>cluster_columns</code> which implement a <code>dendrogram</code> chart.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># https://github.com/fastai/fastbook/blob/master/09_tabular.ipynb</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.cluster <span class="im">import</span> hierarchy <span class="im">as</span> hc</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cluster_columns(df, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>), font_size<span class="op">=</span><span class="dv">12</span>):</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    corr <span class="op">=</span> np.<span class="bu">round</span>(scipy.stats.spearmanr(df).correlation, <span class="dv">4</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    corr_condensed <span class="op">=</span> hc.distance.squareform(<span class="dv">1</span><span class="op">-</span>corr)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> hc.linkage(corr, method<span class="op">=</span><span class="st">'average'</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>figsize)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    hc.dendrogram(z, labels<span class="op">=</span>df.columns, orientation<span class="op">=</span><span class="st">'left'</span>, leaf_font_size<span class="op">=</span>font_size)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now, iteratively remove every closely correlated feature and calculate <code>oob_score_</code>. This task is performed by <code>get_oob</code> function:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_oob(df):</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">40</span>, min_samples_leaf<span class="op">=</span><span class="dv">15</span>,</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>        max_samples<span class="op">=</span><span class="dv">50000</span>, max_features<span class="op">=</span><span class="fl">0.5</span>, n_jobs<span class="op">=-</span><span class="dv">1</span>, oob_score<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    m.fit(df, y)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> m.oob_score_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>get_oob(filtered_xs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221025162507.png" class="img-fluid"></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>to_drop <span class="op">=</span> [<span class="st">"id"</span>, <span class="st">"timestamp"</span>, <span class="st">"slim_alloy"</span>, <span class="st">"id_alloy"</span>, <span class="st">"pairing_alloy"</span>,</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>           <span class="st">"international_alloy"</span>, <span class="st">"id_user"</span>, <span class="st">"address"</span>,</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">"location_name"</span>, <span class="st">"article_min_tickness"</span>, <span class="st">"article_max_tickness_na"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>{c:get_oob(filtered_xs.drop(c, axis<span class="op">=</span><span class="dv">1</span>)) <span class="cf">for</span> c <span class="kw">in</span> to_drop}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221025162546.png" class="img-fluid"></p>
+<p>Going to remove only features with higher score.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>to_drop <span class="op">=</span> [<span class="st">"timestamp"</span>, <span class="st">"id_alloy"</span>, <span class="st">"id_user"</span>, <span class="st">"address"</span>, <span class="st">"article_min_tickness"</span>]</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>filtered_xs <span class="op">=</span> filtered_xs.drop(to_drop, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>filtered_valid_xs <span class="op">=</span> filtered_valid_xs.drop(to_drop, axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> rf(filtered_xs, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>mean_absolute_error(m.predict(filtered_xs), y), </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>mean_absolute_error(m.predict(filtered_valid_xs), valid_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221025104016.png" class="img-fluid"></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>m.oob_score_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221025164058.png" class="img-fluid"></p>
+</section>
+<section id="intermediate-result-1" class="level3">
+<h3 class="anchored" data-anchor-id="intermediate-result-1">Intermediate Result</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Round</th>
+<th>OOB Score</th>
+<th>MAE Training set</th>
+<th>MAE Validation set</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><code>0.709</code></td>
+<td><code>47.06</code></td>
+<td><code>73.49</code></td>
+</tr>
+<tr class="even">
+<td><strong>2</strong></td>
+<td><strong><code>0.708</code></strong></td>
+<td><strong><code>49.37</code></strong></td>
+<td><strong><code>74.09</code></strong></td>
+</tr>
+</tbody>
+</table>
+<p>Not much worse than the model with all the fields. I’ve reduced some more columns (from <code>25</code> to <code>20</code>) and kept stable <code>oob_score_</code>. Removing redundant features help to prevent <strong>overfitting</strong>.</p>
+</section>
+</section>
+<section id="third-round" class="level2">
+<h2 class="anchored" data-anchor-id="third-round">Third Round</h2>
+<p>As showed by Jeremy, Random Forest can suffer of Extrapolation problem (:open_mouth:). <img src="Pasted image 20221025172423.png" class="img-fluid"></p>
+<p>It means, in this case, predictions are too low with new data.</p>
+<blockquote class="blockquote">
+<p>Remember, a random forest just averages the predictions of a number of trees. And a tree simply predicts the average value of the rows in a leaf. Therefore, a tree and a random forest can never predict values outside of the range of the training data. This is particularly problematic for data where there is a trend over time, such as inflation, and you wish to make predictions for a future time. Your predictions will be systematically too low.</p>
+</blockquote>
+<p>For this reason I’ve to make sure validation set does not contain <strong>out-of-domain data</strong>.</p>
+<section id="out-of-domain-data" class="level3">
+<h3 class="anchored" data-anchor-id="out-of-domain-data">Out-of-Domain Data</h3>
+<p>How to understand if the data is distributed quite properly on training set and validation set?</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df_dom <span class="op">=</span> pd.concat([filtered_xs, filtered_valid_xs])</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>is_valid <span class="op">=</span> np.array([<span class="dv">0</span>]<span class="op">*</span><span class="bu">len</span>(filtered_xs) <span class="op">+</span> [<span class="dv">1</span>]<span class="op">*</span><span class="bu">len</span>(filtered_valid_xs))</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> rf(df_dom, is_valid)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>rf_feat_importance(m, df_dom)[:<span class="dv">15</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221026103311.png" class="img-fluid"></p>
+<p>Now, for each feature which vary a lot from training set and validation set, try to drop and check <code>mean_absolute_error</code>. Finally, select those that keep improving the model.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'orig'</span>, mean_absolute_error(m.predict(filtered_valid_xs), valid_y))</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> (<span class="st">'id'</span>,<span class="st">'weight'</span>, <span class="st">'international_alloy'</span>, <span class="st">'slim_alloy'</span>,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>          <span class="st">'pairing_alloy'</span>, <span class="st">'id_machine_article_description'</span>, <span class="st">'location_name'</span>, <span class="st">"last_name"</span>):</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> rf(filtered_xs.drop(c,axis<span class="op">=</span><span class="dv">1</span>), y)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(c, mean_absolute_error(m.predict(filtered_valid_xs.drop(c,axis<span class="op">=</span><span class="dv">1</span>)), valid_y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221026104401.png" class="img-fluid"></p>
+<p>Let’s drop only <code>slim_alloy</code>.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>to_drop <span class="op">=</span> [<span class="st">'slim_alloy'</span>]</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>xs_final <span class="op">=</span> filtered_xs.drop(to_drop, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>valid_xs <span class="op">=</span> filtered_valid_xs.drop(to_drop, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> rf(xs_final, y)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>mean_absolute_error(m.predict(valid_xs), valid_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221026104546.png" class="img-fluid"></p>
+<p>Keep checking out of bag error:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>m.oob_score_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Pasted image 20221026104841.png" class="img-fluid"></p>
+</section>
+<section id="intermediate-result-2" class="level3">
+<h3 class="anchored" data-anchor-id="intermediate-result-2">Intermediate Result</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Round</th>
+<th>OOB Score</th>
+<th>MAE Training set</th>
+<th>MAE Validation set</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><code>0.709</code></td>
+<td><code>47.06</code></td>
+<td><code>73.49</code></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><code>0.708</code></td>
+<td><code>49.37</code></td>
+<td><code>74.09</code></td>
+</tr>
+<tr class="odd">
+<td><strong>3</strong></td>
+<td><strong><code>0.707</code></strong></td>
+<td></td>
+<td><strong><code>73.98</code></strong></td>
+</tr>
+</tbody>
+</table>
+<p>Good news, working on <strong>out-of-domain data</strong> has improved <code>mean_absolute_error</code> and stabilize <code>oob_score_</code>: - from <code>74.09</code> KG to <code>73.98</code> KG, validation set; - from <code>0.708</code> to <code>0.707</code>, <code>oob_score_</code>.</p>
+<p>What I have achieved so far are only small improvements. Looking at a simple chart which plots the delta between real value and prediction, I can see there’s still lot of room of improvement. <img src="Pasted image 20221026110706.png" class="img-fluid"></p>
+<p>Some datapoints are consistently predicted wrong (dots at about <code>-900/-1000</code> and about <code>900/1000</code>). Other visual tools like <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html?highlight=confusion+matrix">Confusion matrix</a> , <strong>prediction confidence</strong>, <a href="http://blog.datadive.net/random-forest-interpretation-with-scikit-learn/">treeinterpreter</a> can help to analyze those behaviors.</p>
+</section>
+</section>
+<section id="final-round" class="level2">
+<h2 class="anchored" data-anchor-id="final-round">Final Round</h2>
+<p>Before any hyper-mega-super-giga tuning, my last attempt is to remove older data.</p>
+<p>Why? The application which manages the weighting/labeling process of scraps<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> has been released about 2 years ago. Wouldn’t surprise me if I found some strange data points, especially during first period of usage where operators were not comfortable yet with the system.</p>
+<p>Re-processing whole steps removing older 12k datapoints, seems to have generated a better baseline. <img src="Pasted image 20221026121947.png" class="img-fluid"></p>
+<p>There’s still miss-classification at around <code>-900/-1000</code> and <code>900/1000</code>, it’s worth investigating. However it’s evident has been achieved an improvement.</p>
+<section id="result" class="level3">
+<h3 class="anchored" data-anchor-id="result">Result</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Round</th>
+<th>OOB Score</th>
+<th>MAE Training set</th>
+<th>MAE Validation set</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><code>0.709</code></td>
+<td><code>47.06</code></td>
+<td><code>73.49</code></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><code>0.708</code></td>
+<td><code>49.37</code></td>
+<td><code>74.09</code></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><code>0.707</code></td>
+<td></td>
+<td><code>73.98</code></td>
+</tr>
+<tr class="even">
+<td><strong>4</strong></td>
+<td><strong><code>0.714</code></strong></td>
+<td></td>
+<td><strong><code>72.17</code></strong></td>
+</tr>
+</tbody>
+</table>
+<p>I think as baseline model is good entry level: fast to fit, easily interpretable and quite stable.</p>
+<p><strong>What I want to point out is that this small experimentation has been possible with few KBs of data, a laptop and a mediocre baseline model. An empowered model version, will avoid to spend several thousand dollars on revamping of machines!</strong></p>
+</section>
+</section>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s Next?</h2>
+<p>Once created a baseline model on simplified dataset, it’s time to make a decision: - creating a NN model - or working on <a href="https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74">Radom Forest tuning</a> - or switching to XGBoost model</p>
+<blockquote class="blockquote">
+<p>…roughly 80% of consequences come from 20% of causes…</p>
+</blockquote>
+<p>As per <a href="https://en.wikipedia.org/wiki/Pareto_principle">Pareto principle</a>, it means, for me, to try to leverage and get as good result as soon as possible while keeping at the minimum the effort.</p>
+<p>So next steps: - I will implement a Neural Network model - then I’ll combine NN with Random Forest - the ensembles will work in parallel with a Computer Vision model which will try to classify the same problem (a box of scraps).</p>
+<p>All those stuffs are aimed to develop a system where departments are notified every time the prediction of models are too different from what’s happening during the weighting process.</p>
+<p>I’ve in mind already the application name: <strong>Box ClassifAI</strong>.</p>
+<p><strong>Keep the scraps errors lower and push higher the revenue. That’s it</strong>.</p>
+</section>
+<section id="open-points" class="level2">
+<h2 class="anchored" data-anchor-id="open-points">Open Points</h2>
+<ul>
+<li>What happens if I play with categorical and continuous variables? Can them affect the prediction?</li>
+<li>Plotting <code>dendogram</code> and removing most correlated columns. Does it change the prediction? Are columns the same?</li>
+<li>Why is confidence of prediction totally wrong when the deviation reach value <code>100</code>? Why is prediction not so bad with greater value?</li>
+<li>Partial dependency plots for multi-class-classifiers?</li>
+<li>Could improve Random Forest model with additional information like weather data?</li>
+<li>What’s happen if I convert the problem into a regression one? May the result improve?</li>
+</ul>
+<p><strong>If you have any suggestions, recommendations, or corrections please <a href="https://twitter.com/bot_fra">reach out to me</a>.</strong></p>
+<hr>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>We have developed some tools to speed up and managing the process of the Aluminium scarps weighting<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>A gentle introduction to Data Leakage can be found on <a href="https://www.kaggle.com/code/alexisbcook/data-leakage">Kaggle course</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>A formal introduction to Data Leakage can be found on <a href="https://www.cs.umb.edu/~ding/history/470_670_fall_2011/papers/cs670_Tran_PreferredPaper_LeakingInDataMining.pdf">Leakage in Data Mining paper</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Weight - Box Weight = Net Weight<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>We have developed some tools to speed up and managing the process of the Aluminium scarps weighting<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
