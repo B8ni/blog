@@ -126,39 +126,46 @@
     "text": "Further Work\n\nDevelop service which host the model.\nHow reacts the model if I remove duplicated rows? Do it.\nI know the dataset is imbalanced. Implement it.\nCompare the result with deep learning tabular model.\nCompare the result with XGBoost model.\nUsing same method to classify Aluminium alloys."
   },
   {
-    "objectID": "posts/2022-12-28-goals-of-2023.html",
-    "href": "posts/2022-12-28-goals-of-2023.html",
-    "title": "2023 Goals",
+    "objectID": "posts/confusion-matrix/2022-11-15-confusion-matrix.html",
+    "href": "posts/confusion-matrix/2022-11-15-confusion-matrix.html",
+    "title": "Confusion Matrix",
     "section": "",
-    "text": "1000h on learning ML\n\ncomplete FastAI Part 1 course\ncomplete FastAI Part 2 course\ndeploy course\nrelease 4 ML software in production\n\ndetails: release a software each 3 months\n\nuse seriously ChatGPT and or CoPilot\n\nwriting 52 articles\n\ndetails: write an article per week on the weekend\n\nuse at least 300 days Anki\nbecome MLSE this year\n\ndetails: change job description or change job\n\nearning 60k per year\nsmall but stable revenue with side project\n1.48min/100m swimming\nread 12 books\nmeditate 365 days\nyoga 250 days\nmorning gratitude and appreciation 365 days\nstart teaching logic to my son\nstart playing piano\nreach 22k of cash on Sep 2023 to pay dad’s debit\nparticipate at festivaldellamente\nparticipate at versilianafestival\nparticipate at 1 AI conference\nparticipate at 1 SWE conference\nno sugar\n1800 minutes of audiobook/podcast\n\ndetails: 30 min per working-day while driving\n\n\nIf you have any suggestions, recommendations, or corrections please reach out to me."
+    "text": "Confusion Matrix, is a matrix and… we all agree.\nConfusion Matrix can answer to the questions: - How is going the prediction? - Which one I constantly missed?\nConfusion Matrix is composed by following components: \nWhat’s TP? - True Positive: it’s what the model have predicted right. On my current work I’m trying to predict the weight of a box (about 11 classes). The box weight 750? Yes, it falls into TP recipient. If not, it falls into FP.\nWhat’s FP? - False Positive: it’s what the model have predicted wrong. The model thought the box weight 750 KG but it isn’t. Wrong prediction.\nWhat’s TN: - True Negative: the model understood that box weight isn’t 750 KG. It falls into TN recipient. If not, it falls into FN.\nWhat’s FN: - False Negative: the model predicted not 750 KG and was wrong. It falls into FN recipient. it’s the opposite behavior of FP. Someone would say: invert. always invert"
   },
   {
-    "objectID": "posts/2022-12-13-dont-afraid-to-build.html",
-    "href": "posts/2022-12-13-dont-afraid-to-build.html",
-    "title": "Quote from Bottoni",
+    "objectID": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#whats-confusion-matrix",
+    "href": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#whats-confusion-matrix",
+    "title": "Confusion Matrix",
     "section": "",
-    "text": "Bottoni, 2022"
+    "text": "Confusion Matrix, is a matrix and… we all agree.\nConfusion Matrix can answer to the questions: - How is going the prediction? - Which one I constantly missed?\nConfusion Matrix is composed by following components: \nWhat’s TP? - True Positive: it’s what the model have predicted right. On my current work I’m trying to predict the weight of a box (about 11 classes). The box weight 750? Yes, it falls into TP recipient. If not, it falls into FP.\nWhat’s FP? - False Positive: it’s what the model have predicted wrong. The model thought the box weight 750 KG but it isn’t. Wrong prediction.\nWhat’s TN: - True Negative: the model understood that box weight isn’t 750 KG. It falls into TN recipient. If not, it falls into FN.\nWhat’s FN: - False Negative: the model predicted not 750 KG and was wrong. It falls into FN recipient. it’s the opposite behavior of FP. Someone would say: invert. always invert"
   },
   {
-    "objectID": "posts/2022-12-13-dont-afraid-to-build.html#reference",
-    "href": "posts/2022-12-13-dont-afraid-to-build.html#reference",
-    "title": "Quote from Bottoni",
-    "section": "",
-    "text": "Bottoni, 2022"
+    "objectID": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#when-confusion-matrix",
+    "href": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#when-confusion-matrix",
+    "title": "Confusion Matrix",
+    "section": "When Confusion Matrix",
+    "text": "When Confusion Matrix\nThis kind of matrix is applicable only on Classification Problem."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Notes and ideas (in many cases, incomplete or broken)",
-    "section": "",
-    "text": "Goal n. 8 - Read 12 books\n\n\n\n\n\nUpdates on Goal n.8 - Reading 12 books.\n\n\n\n\n\n\nJan 24, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\n2023 Goals\n\n\n\n\n\nMy 20 tasks to achieve in 2023.\n\n\n\n\n\n\nDec 28, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nQuote from Bottoni\n\n\n\n\n\nDon’t be afraid to build.\n\n\n\n\n\n\nDec 13, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nQuote from Karpathy\n\n\n\n\n\nAll Fallen Empires begin the game in Sleeping status. Despite their complete development and immense power, the Fallen Empires will remain passive, staying within their borders and taking no action unless provoked.\n\n\n\n\n\n\nDec 13, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nNeural Network\n\n\n\n\n\nWikibot Neural Network.\n\n\n\n\n\n\nDec 12, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nQuote from Ilya Sutskever\n\n\n\n\n\nDeep learning is based on the audacious conjecture that biological neurons and artificial neurons are not that different. Its success to date is evidence for this belief.\n\n\n\n\n\n\nDec 2, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nThe Random Forest Guy\n\n\n\n\n\nAluminium Scrap Box Classification.\n\n\n\n\n\n\nNov 17, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nConfusion Matrix\n\n\n\n\n\nWikibot Confusion Matrix.\n\n\n\n\n\n\nNov 15, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nHow Random Forest Can Empower A Plant\n\n\n\n\n\nPractical use case of Random Forest in Industrial environment.\n\n\n\n\n\n\nOct 26, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nLearning AI And Failing Miserably\n\n\n\n\n\nA minimal guide of failing learning AI.\n\n\n\n\n\n\nAug 7, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\nNo matching items"
+    "objectID": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#why-confusion-matrix",
+    "href": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#why-confusion-matrix",
+    "title": "Confusion Matrix",
+    "section": "Why Confusion Matrix",
+    "text": "Why Confusion Matrix\nOn top of Confusion Matrix have been developer lots of metrics. : - Accuracy - Precision - Recall - F-Score - AUC ROC"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#implementation",
+    "href": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#implementation",
+    "title": "Confusion Matrix",
+    "section": "Implementation",
+    "text": "Implementation\nIf you have any suggestions, recommendations, or corrections please reach out to me."
+  },
+  {
+    "objectID": "posts/2023-01-24-reading-book-2023.html",
+    "href": "posts/2023-01-24-reading-book-2023.html",
+    "title": "Goal n. 8 - Read 12 books",
     "section": "",
-    "text": "There’s nothing to say about me. I’m another human being, like you."
+    "text": "Ken Follet - Eye of the Needle, 2023/01\n\nIf you have any suggestions, recommendations, or corrections please reach out to me."
   },
   {
     "objectID": "posts/2022-12-12-neural-network.html",
@@ -203,46 +210,46 @@
     "text": "References\n\nNeural net foundations - Jeremy Howard, 2022\nHow does a neural net really work? - Jeremy Howard, 2022\nChatting with ChatGPT"
   },
   {
-    "objectID": "posts/2023-01-24-reading-book-2023.html",
-    "href": "posts/2023-01-24-reading-book-2023.html",
-    "title": "Goal n. 8 - Read 12 books",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "Ken Follet - Eye of the Needle, 2023/01\n\nIf you have any suggestions, recommendations, or corrections please reach out to me."
+    "text": "There’s nothing to say about me. I’m another human being, like you."
   },
   {
-    "objectID": "posts/confusion-matrix/2022-11-15-confusion-matrix.html",
-    "href": "posts/confusion-matrix/2022-11-15-confusion-matrix.html",
-    "title": "Confusion Matrix",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Notes and ideas (in many cases, incomplete or broken)",
     "section": "",
-    "text": "Confusion Matrix, is a matrix and… we all agree.\nConfusion Matrix can answer to the questions: - How is going the prediction? - Which one I constantly missed?\nConfusion Matrix is composed by following components: \nWhat’s TP? - True Positive: it’s what the model have predicted right. On my current work I’m trying to predict the weight of a box (about 11 classes). The box weight 750? Yes, it falls into TP recipient. If not, it falls into FP.\nWhat’s FP? - False Positive: it’s what the model have predicted wrong. The model thought the box weight 750 KG but it isn’t. Wrong prediction.\nWhat’s TN: - True Negative: the model understood that box weight isn’t 750 KG. It falls into TN recipient. If not, it falls into FN.\nWhat’s FN: - False Negative: the model predicted not 750 KG and was wrong. It falls into FN recipient. it’s the opposite behavior of FP. Someone would say: invert. always invert"
+    "text": "Be Like a Circus Performer\n\n\n\n\n\nEmbrace the Circus Performer Mentality.\n\n\n\n\n\n\nAug 12, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nGoal n. 8 - Read 12 books\n\n\n\n\n\nUpdates on Goal n.8 - Reading 12 books.\n\n\n\n\n\n\nJan 24, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\n2023 Goals\n\n\n\n\n\nMy 20 tasks to achieve in 2023.\n\n\n\n\n\n\nDec 28, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nQuote from Bottoni\n\n\n\n\n\nDon’t be afraid to build.\n\n\n\n\n\n\nDec 13, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nQuote from Karpathy\n\n\n\n\n\nAll Fallen Empires begin the game in Sleeping status. Despite their complete development and immense power, the Fallen Empires will remain passive, staying within their borders and taking no action unless provoked.\n\n\n\n\n\n\nDec 13, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nNeural Network\n\n\n\n\n\nWikibot Neural Network.\n\n\n\n\n\n\nDec 12, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nQuote from Ilya Sutskever\n\n\n\n\n\nDeep learning is based on the audacious conjecture that biological neurons and artificial neurons are not that different. Its success to date is evidence for this belief.\n\n\n\n\n\n\nDec 2, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nThe Random Forest Guy\n\n\n\n\n\nAluminium Scrap Box Classification.\n\n\n\n\n\n\nNov 17, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nConfusion Matrix\n\n\n\n\n\nWikibot Confusion Matrix.\n\n\n\n\n\n\nNov 15, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nHow Random Forest Can Empower A Plant\n\n\n\n\n\nPractical use case of Random Forest in Industrial environment.\n\n\n\n\n\n\nOct 26, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nLearning AI And Failing Miserably\n\n\n\n\n\nA minimal guide of failing learning AI.\n\n\n\n\n\n\nAug 7, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#whats-confusion-matrix",
-    "href": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#whats-confusion-matrix",
-    "title": "Confusion Matrix",
+    "objectID": "posts/2022-12-13-dont-afraid-to-build.html",
+    "href": "posts/2022-12-13-dont-afraid-to-build.html",
+    "title": "Quote from Bottoni",
     "section": "",
-    "text": "Confusion Matrix, is a matrix and… we all agree.\nConfusion Matrix can answer to the questions: - How is going the prediction? - Which one I constantly missed?\nConfusion Matrix is composed by following components: \nWhat’s TP? - True Positive: it’s what the model have predicted right. On my current work I’m trying to predict the weight of a box (about 11 classes). The box weight 750? Yes, it falls into TP recipient. If not, it falls into FP.\nWhat’s FP? - False Positive: it’s what the model have predicted wrong. The model thought the box weight 750 KG but it isn’t. Wrong prediction.\nWhat’s TN: - True Negative: the model understood that box weight isn’t 750 KG. It falls into TN recipient. If not, it falls into FN.\nWhat’s FN: - False Negative: the model predicted not 750 KG and was wrong. It falls into FN recipient. it’s the opposite behavior of FP. Someone would say: invert. always invert"
+    "text": "Bottoni, 2022"
   },
   {
-    "objectID": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#when-confusion-matrix",
-    "href": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#when-confusion-matrix",
-    "title": "Confusion Matrix",
-    "section": "When Confusion Matrix",
-    "text": "When Confusion Matrix\nThis kind of matrix is applicable only on Classification Problem."
+    "objectID": "posts/2022-12-13-dont-afraid-to-build.html#reference",
+    "href": "posts/2022-12-13-dont-afraid-to-build.html#reference",
+    "title": "Quote from Bottoni",
+    "section": "",
+    "text": "Bottoni, 2022"
   },
   {
-    "objectID": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#why-confusion-matrix",
-    "href": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#why-confusion-matrix",
-    "title": "Confusion Matrix",
-    "section": "Why Confusion Matrix",
-    "text": "Why Confusion Matrix\nOn top of Confusion Matrix have been developer lots of metrics. : - Accuracy - Precision - Recall - F-Score - AUC ROC"
+    "objectID": "posts/2022-12-28-goals-of-2023.html",
+    "href": "posts/2022-12-28-goals-of-2023.html",
+    "title": "2023 Goals",
+    "section": "",
+    "text": "1000h on learning ML\n\ncomplete FastAI Part 1 course\ncomplete FastAI Part 2 course\ndeploy course\nrelease 4 ML software in production\n\ndetails: release a software each 3 months\n\nuse seriously ChatGPT and or CoPilot\n\nwriting 52 articles\n\ndetails: write an article per week on the weekend\n\nuse at least 300 days Anki\nbecome MLSE this year\n\ndetails: change job description or change job\n\nearning 60k per year\nsmall but stable revenue with side project\n1.48min/100m swimming\nread 12 books\nmeditate 365 days\nyoga 250 days\nmorning gratitude and appreciation 365 days\nstart teaching logic to my son\nstart playing piano\nreach 22k of cash on Sep 2023 to pay dad’s debit\nparticipate at festivaldellamente\nparticipate at versilianafestival\nparticipate at 1 AI conference\nparticipate at 1 SWE conference\nno sugar\n1800 minutes of audiobook/podcast\n\ndetails: 30 min per working-day while driving\n\n\nIf you have any suggestions, recommendations, or corrections please reach out to me."
   },
   {
-    "objectID": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#implementation",
-    "href": "posts/confusion-matrix/2022-11-15-confusion-matrix.html#implementation",
-    "title": "Confusion Matrix",
-    "section": "Implementation",
-    "text": "Implementation\nIf you have any suggestions, recommendations, or corrections please reach out to me."
+    "objectID": "posts/2023-08-12-circus-performer.html",
+    "href": "posts/2023-08-12-circus-performer.html",
+    "title": "Be Like a Circus Performer",
+    "section": "",
+    "text": "Running a startup successfully often requires adopting the mindset of a circus performer. Imagine everyone coming to watch a show, where the same performer who wows the audience with a somersault is the one who took your ticket and ushered you to your seat.\nBeing a generalist is often the best approach ****— and sometimes, the only road to success**.\nIf the term generalist doesn’t resonate with you, think of yourself as a versatile circus performer.\nEmbrace the idea of tearing up the ticket, giving a stellar performance, and then dismantling your equipment.\nYes, you have to be ready to step outside your comfort zone, and at times, even your passion, if you truly want to excel.\nNow, I’m performing. Buy my ticket.\nIf you have any suggestions, recommendations, or corrections please reach out to me."
   },
   {
     "objectID": "posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html#why-another-blog-post",
