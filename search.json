@@ -168,32 +168,11 @@
     "text": "Ken Follet - Eye of the Needle, 2023/01\nF. Hermans - The Programmer’s Brain, 2023/10\nAndre’ van der Hoek - Software Design Decoded, Dropped\nJ. Ousterhout - A Philosophy of Software Design, In progress\nLuigi Fontana - The Path to Longevity, In progress\n\nIf you have any suggestions, recommendations, or corrections please reach out to me."
   },
   {
-    "objectID": "posts/2022-12-13-dont-afraid-to-build.html",
-    "href": "posts/2022-12-13-dont-afraid-to-build.html",
-    "title": "Quote from Bottoni",
+    "objectID": "posts/2023-11-22-hexagonal-architecture.html",
+    "href": "posts/2023-11-22-hexagonal-architecture.html",
+    "title": "Hexagonal Architecture",
     "section": "",
-    "text": "Bottoni, 2022"
-  },
-  {
-    "objectID": "posts/2022-12-13-dont-afraid-to-build.html#reference",
-    "href": "posts/2022-12-13-dont-afraid-to-build.html#reference",
-    "title": "Quote from Bottoni",
-    "section": "",
-    "text": "Bottoni, 2022"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Notes and ideas (in many cases, incomplete or broken)",
-    "section": "",
-    "text": "Finding the Average Odds Margin\n\n\n\n\n\nHow to Mange Odds Margin.\n\n\n\n\n\n\nAug 18, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nBe Like a Circus Performer\n\n\n\n\n\nEmbrace the Circus Performer Mentality.\n\n\n\n\n\n\nAug 12, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nGoal n. 8 - Read 12 books\n\n\n\n\n\nUpdates on Goal n.8 - Reading 12 books.\n\n\n\n\n\n\nJan 24, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\n2023 Goals\n\n\n\n\n\nMy 20 tasks to achieve in 2023.\n\n\n\n\n\n\nDec 28, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nQuote from Bottoni\n\n\n\n\n\nDon’t be afraid to build.\n\n\n\n\n\n\nDec 13, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nQuote from Karpathy\n\n\n\n\n\nAll Fallen Empires begin the game in Sleeping status. Despite their complete development and immense power, the Fallen Empires will remain passive, staying within their borders and taking no action unless provoked.\n\n\n\n\n\n\nDec 13, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nNeural Network\n\n\n\n\n\nWikibot Neural Network.\n\n\n\n\n\n\nDec 12, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nQuote from Ilya Sutskever\n\n\n\n\n\nDeep learning is based on the audacious conjecture that biological neurons and artificial neurons are not that different. Its success to date is evidence for this belief.\n\n\n\n\n\n\nDec 2, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nThe Random Forest Guy\n\n\n\n\n\nAluminium Scrap Box Classification.\n\n\n\n\n\n\nNov 17, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nConfusion Matrix\n\n\n\n\n\nWikibot Confusion Matrix.\n\n\n\n\n\n\nNov 15, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nHow Random Forest Can Empower A Plant\n\n\n\n\n\nPractical use case of Random Forest in Industrial environment.\n\n\n\n\n\n\nOct 26, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nLearning AI And Failing Miserably\n\n\n\n\n\nA minimal guide of failing learning AI.\n\n\n\n\n\n\nAug 7, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "There’s nothing to say about me. I’m another human being, like you."
+    "text": "Hexagonal architecture is made by core and actors.\nCore is the business logic needed to solve the problem. It’s orthogonal to the infrastructure. Orthogonal means the core is decoupled from the infra. Even better definition is: the core is technology agnostic.\nThe core defines how to achieve the business logic goals.\nSo, what’s the core? it’s the business logic uncorrelated to the infrastructure.\nAnd now, what are the actors? Are those that trigger the core (driver actors) or those that has been triggered by the core (driven actors).\nExample of actors?\nActors in programming can be abstracted as:\n\nports -&gt; interfaces which defines how the communication between actors and core happens\n\ndriver ports -&gt; a set of actions the core provides to the outside (driver actor triggers the core)\ndriven ports -&gt; a set of actions that actor has to implement (driven actor triggered by the core)\n\nadapters -&gt; are simply the implementations of the interfaces’ ports which are responsible to transform and adapt the request in order core can interact.\n\nExample of adapters:\n\nDriver adapters are handlers.\nDriven adapters are repositories.\n\nFocus and energy on implementation of business logic. Define use cases and work on it. Forget everything.\nWhat’s functional requirements? Use cases.\n\n\nReferences:\n\nhttps://jmgarridopaz.github.io/content/hexagonalarchitecture.html\nhttps://jmgarridopaz.github.io/content/resources.html\nhttps://alistair.cockburn.us/hexagonal-architecture/\nhttps://medium.com/swlh/golangs-interfaces-explained-with-mocks-886f69eca6f0"
   },
   {
     "objectID": "posts/2022-12-12-neural-network.html",
@@ -236,6 +215,34 @@
     "title": "Neural Network",
     "section": "References",
     "text": "References\n\nNeural net foundations - Jeremy Howard, 2022\nHow does a neural net really work? - Jeremy Howard, 2022\nChatting with ChatGPT"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "There’s nothing to say about me. I’m another human being, like you."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Notes and ideas (in many cases, incomplete or broken)",
+    "section": "",
+    "text": "Hexagonal Architecture\n\n\n\n\n\nWikibot Hexagonal Architecture.\n\n\n\n\n\n\nNov 22, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nFinding the Average Odds Margin\n\n\n\n\n\nHow to Mange Odds Margin.\n\n\n\n\n\n\nAug 18, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nBe Like a Circus Performer\n\n\n\n\n\nEmbrace the Circus Performer Mentality.\n\n\n\n\n\n\nAug 12, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nGoal n. 8 - Read 12 books\n\n\n\n\n\nUpdates on Goal n.8 - Reading 12 books.\n\n\n\n\n\n\nJan 24, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\n2023 Goals\n\n\n\n\n\nMy 20 tasks to achieve in 2023.\n\n\n\n\n\n\nDec 28, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nQuote from Bottoni\n\n\n\n\n\nDon’t be afraid to build.\n\n\n\n\n\n\nDec 13, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nQuote from Karpathy\n\n\n\n\n\nAll Fallen Empires begin the game in Sleeping status. Despite their complete development and immense power, the Fallen Empires will remain passive, staying within their borders and taking no action unless provoked.\n\n\n\n\n\n\nDec 13, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nNeural Network\n\n\n\n\n\nWikibot Neural Network.\n\n\n\n\n\n\nDec 12, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nQuote from Ilya Sutskever\n\n\n\n\n\nDeep learning is based on the audacious conjecture that biological neurons and artificial neurons are not that different. Its success to date is evidence for this belief.\n\n\n\n\n\n\nDec 2, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nThe Random Forest Guy\n\n\n\n\n\nAluminium Scrap Box Classification.\n\n\n\n\n\n\nNov 17, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nConfusion Matrix\n\n\n\n\n\nWikibot Confusion Matrix.\n\n\n\n\n\n\nNov 15, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nHow Random Forest Can Empower A Plant\n\n\n\n\n\nPractical use case of Random Forest in Industrial environment.\n\n\n\n\n\n\nOct 26, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nLearning AI And Failing Miserably\n\n\n\n\n\nA minimal guide of failing learning AI.\n\n\n\n\n\n\nAug 7, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/2022-12-13-dont-afraid-to-build.html",
+    "href": "posts/2022-12-13-dont-afraid-to-build.html",
+    "title": "Quote from Bottoni",
+    "section": "",
+    "text": "Bottoni, 2022"
+  },
+  {
+    "objectID": "posts/2022-12-13-dont-afraid-to-build.html#reference",
+    "href": "posts/2022-12-13-dont-afraid-to-build.html#reference",
+    "title": "Quote from Bottoni",
+    "section": "",
+    "text": "Bottoni, 2022"
   },
   {
     "objectID": "posts/average-odds-margin.html#work-based-on",
