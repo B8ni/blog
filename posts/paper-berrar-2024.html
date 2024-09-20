@@ -194,8 +194,6 @@ window.Quarto = {
   <ul>
   <li><a href="#tldr" id="toc-tldr" class="nav-link active" data-scroll-target="#tldr">TL;DR</a></li>
   <li><a href="#my-findings" id="toc-my-findings" class="nav-link" data-scroll-target="#my-findings">My findings</a></li>
-  <li><a href="#pros" id="toc-pros" class="nav-link" data-scroll-target="#pros">Pros</a></li>
-  <li><a href="#cons" id="toc-cons" class="nav-link" data-scroll-target="#cons">Cons</a></li>
   <li><a href="#wip-notes" id="toc-wip-notes" class="nav-link" data-scroll-target="#wip-notes">WIP Notes</a></li>
   </ul>
 </nav>
@@ -209,6 +207,35 @@ window.Quarto = {
 
 <section id="tldr" class="level3">
 <h3 class="anchored" data-anchor-id="tldr">TL;DR</h3>
+<section id="what-are-core-problems-to-solve" class="level4">
+<h4 class="anchored" data-anchor-id="what-are-core-problems-to-solve">What are core problems to solve?</h4>
+<ul>
+<li>Cross-league compatibility:
+<ul>
+<li>Statistical disparities: Differences in mean, median, and mode across leagues and divisions can skew predictions.
+<ul>
+<li>Example: Disparity in home win rates between DZA1 and JPN2.</li>
+</ul></li>
+</ul></li>
+<li>Season-transition:
+<ul>
+<li>Player changes: Transfers, retirements, and injuries can significantly impact team performance.</li>
+<li>Rule changes: New regulations or tactics can alter the game’s dynamics.</li>
+</ul></li>
+<li>Strength of the opposition:
+<ul>
+<li>Relative performance: A team’s performance is influenced by the quality of its opponents.</li>
+<li>Home advantage: Home teams often have an advantage, which can complicate predictions.</li>
+</ul></li>
+<li>Recency bias:
+<ul>
+<li>Short-term trends: Over-reliance on recent results can lead to inaccurate predictions.</li>
+<li>Form fluctuations: Teams can experience periods of good and bad form.</li>
+</ul></li>
+</ul>
+</section>
+<section id="what-did-the-author" class="level4">
+<h4 class="anchored" data-anchor-id="what-did-the-author">What did the author?</h4>
 <ol type="1">
 <li>A handful of features, only 6. Drop the rest: total home/away goals scored/concede and home/away normalized rank.</li>
 <li>The central focus is on time series data <strong>conceived as a longitudinal (team) performance time series</strong>: it means that its value develops over time (multiple seasons merged).</li>
@@ -219,10 +246,11 @@ window.Quarto = {
 <p>My TLDR highlighted DeepFoot-KNN, a k-nearest neighbor model based on the total feature set (see below), as described by the author.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="paper-berrar-2024_files/figure-html/718d8220-1-image.png" class="img-fluid figure-img"></p>
+<p><img src="paper-berrar-2024_files/figure-html/7cbb9d19-1-image.png" class="img-fluid figure-img"></p>
 <figcaption>Table by the author: Total feature set consisting of 6 features based on all (home and away combined) n recent matches of a team</figcaption>
 </figure>
 </div>
+</section>
 </section>
 <section id="my-findings" class="level3">
 <h3 class="anchored" data-anchor-id="my-findings">My findings</h3>
@@ -231,21 +259,21 @@ window.Quarto = {
 <p>I would like to investigate why the author has derived the optimal_n value considering goals conceded/scored and not including the ranking on the calculation. Althought ranking has not been included in the optimization process, the n value used to calculate the rolling ranking was, obviosly, the optimal_n which was based on different features. <strong>Is it right? Should I find a different optimal_n value for normalized ranking feat?</strong></p>
 <p>Anyhow, parameter n (optimal_n) has been used to compute the rolling features (home and away goals scores, home and away goals conceded, home and away normalized ranking).</p>
 <p>Finally, trained the KNN model on top of (likelyhood) most predictive features, iterating K from 3 up to 350.</p>
-</section>
-<section id="pros" class="level3">
-<h3 class="anchored" data-anchor-id="pros">Pros</h3>
+<section id="pros" class="level4">
+<h4 class="anchored" data-anchor-id="pros">Pros</h4>
 <p><a href="http://www.berrar.com">Prof Berrar</a>’s <a href="http://berrar.com/resources/Berrar_MLJ-SI_SoccerPredictionChallenge2023_preprint.pdf">paper</a> impressed me. His iterative approach of providing definitions, explanations, and examples is a refreshing change in academic writing. This, combined with the use of a less math-heavy approach, made the concepts easy to grasp.</p>
 <p>The 300,000-datapoint dataset is a fantastic resource, and I particularly appreciate the focus on just six features. Using only <code>home_goals</code> and <code>away_goals</code> to achieve an RMSE of <code>1.6339</code> on 44 leagues (approximately 700 data points) is remarkable.</p>
 <p>The choice of an <a href="">instance-based KNN model</a> aligns perfectly with the simplicity of the data. Just like me, it’s a “lazy learner” that avoids overfitting with such a small number of inputs.</p>
 </section>
-<section id="cons" class="level3">
-<h3 class="anchored" data-anchor-id="cons">Cons</h3>
+<section id="cons" class="level4">
+<h4 class="anchored" data-anchor-id="cons">Cons</h4>
 <p>I put leave-one-out cross validation (LOOCV) under this section because it seems overfit although KNN balances this issue by increasing the optimal_k (nearest neghboors). So LOOCV overfit but KNN within an handful of features likely balances the problem.</p>
 <p>Based on its <a href="http://berrar.com/resources/Berrar_EBCB_2nd_edition_Cross-validation_preprint.pdf">(other) paper</a>, Mr.&nbsp;Daniel compares different variants of cross validation, assessing that LOOCV and 10-fold cross-validation have the smallest bias.</p>
 <p>A quick observation: in this <a href="https://link.springer.com/article/10.1007/s10994-018-5747-8">paper (2019)</a>, Berrar randomly splited into a training set (90% of the data) and a hold-out test set (10% of the data) <a href="https://link.springer.com/article/10.1007/s10994-018-5747-8#Sec12">(Section 7.2.1)</a> which is totally different from this approach. Is it due to the different features?</p>
 <p>Single model for each league. Since the approach was to compute features league-by-league, the model must be developed league-by-league. It implies 44 models to deploy. 44 models to monitoring. 44 models to retrain.</p>
 <p>Meta league &gt; Super league.</p>
 <hr>
+</section>
 </section>
 <section id="wip-notes" class="level3">
 <h3 class="anchored" data-anchor-id="wip-notes">WIP Notes</h3>
