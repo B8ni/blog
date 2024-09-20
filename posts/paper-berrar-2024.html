@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -163,9 +192,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-i-like" id="toc-what-i-like" class="nav-link active" data-scroll-target="#what-i-like">What I like</a></li>
-  <li><a href="#what-i-dont-like" id="toc-what-i-dont-like" class="nav-link" data-scroll-target="#what-i-dont-like">What I don’t like</a></li>
+  <li><a href="#tltr" id="toc-tltr" class="nav-link active" data-scroll-target="#tltr">TLTR</a></li>
   <li><a href="#my-findings" id="toc-my-findings" class="nav-link" data-scroll-target="#my-findings">My findings</a></li>
+  <li><a href="#pros" id="toc-pros" class="nav-link" data-scroll-target="#pros">Pros</a></li>
+  <li><a href="#cons" id="toc-cons" class="nav-link" data-scroll-target="#cons">Cons</a></li>
   <li><a href="#wip-notes" id="toc-wip-notes" class="nav-link" data-scroll-target="#wip-notes">WIP Notes</a></li>
   </ul>
 </nav>
@@ -177,27 +207,45 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="what-i-like" class="level3">
-<h3 class="anchored" data-anchor-id="what-i-like">What I like</h3>
-<p>I really appreciate the paper. <a href="http://www.berrar.com">Prof Berrar</a> iteratively provides definitions, definitions with explainations and examples. I found rarely this apporach in papers. Maybe lesser heavy math paper has helped me as well to easily digest it.</p>
-<p>I appreciate the 300k-ish dataset.</p>
-<p>I appreciate few features used: only 6.</p>
-<p>I appreciate readily available input used to develop such a predictive features power. Only home_goals and away_goals. A reminder: with only these 6 input, the author achieved an RMSE of <code>1.6339</code> on the test set of ~700 rows over 44 leagues.</p>
-<p>I appreciate the instance based model KNN. Which is not complex, lazy like me and not inclined to overfit with these few input.</p>
-</section>
-<section id="what-i-dont-like" class="level3">
-<h3 class="anchored" data-anchor-id="what-i-dont-like">What I don’t like</h3>
-<p>I put leave-one-out cross validation (LOOCV) under this section because it seems overfit although KNN balances this issue by increasing the optimal_k (nearest neghboors). So LOOCV overfit but KNN within an handful of features likely balances the problem.</p>
-<p>Based on its <a href="http://berrar.com/resources/Berrar_EBCB_2nd_edition_Cross-validation_preprint.pdf">(other) paper</a>, Mr.&nbsp;Daniel compares different variants of cross validation, assessing that LOOCV and 10-fold cross-validation have the smallest bias. An quick observation: in this <a href="https://link.springer.com/article/10.1007/s10994-018-5747-8">paper (2019)</a>, Berrar randomly splited into a training set (90% of the data) and a hold-out test set (10% of the data) <a href="https://link.springer.com/article/10.1007/s10994-018-5747-8#Sec12">(Section 7.2.1)</a> which is totally different from this approach. Is it due to the different features?</p>
-<p>Single model for each league. Since the approach was to compute features league-by-league, the model must be developed league-by-league. It implies 44 models to deploy. 44 models to monitoring. 44 models to retrain.</p>
+<section id="tltr" class="level3">
+<h3 class="anchored" data-anchor-id="tltr">TLTR</h3>
+<ol type="1">
+<li>A handful of features, only 6. Drop the rest: total home/away goals scored/concede and home/away normalized rank.</li>
+<li>The central focus is on time series data <strong>conceived as a longitudinal (team) performance time series</strong>: it means that its value develops over time (multiple seasons merged).</li>
+<li><a href="https://github.com/B8ni/berrar-ratings">Look at the data</a> and find the <code>optimal_n</code> parameter via <a href="https://www.youtube.com/watch?v=k7IctLRiZmo">Pearson correlation</a>: the best <code>optimal_n</code> value with highest correlation has been selected to compute all Super league rolling features (Super league is the league with multiple seasons merged).</li>
+<li>Train KNN model, with <span class="math inline">\(3 &lt;= k &lt;= 350\)</span>, over 44 leagues. Deploy 44 models and predict the remaning matches of 2023 season for all 44 leagues (~ 700 matches).</li>
+<li>With an RMSE of <code>1.6339</code>, the author achieved the top position: first.</li>
+</ol>
+<p>My TLDR highlighted DeepFoot-KNN, a k-nearest neighbor model based on the total feature set (see below), as described by the author.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="paper-berrar-2024_files/figure-html/04dbaabd-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Table by the author: Total feature set consisting of 6 features based on all (home and away combined) n recent matches of a team</figcaption>
+</figure>
+</div>
 </section>
 <section id="my-findings" class="level3">
 <h3 class="anchored" data-anchor-id="my-findings">My findings</h3>
-<p>In my heroic attemps, I tried to replicare the <a href="http://berrar.com/resources/Berrar_MLJ-SI_SoccerPredictionChallenge2023_preprint.pdf">paper</a> and <a href="https://github.com/B8ni/berrar-ratings">I did it</a>.</p>
+<p>In my heroic attempt, I tried to replicare the <a href="http://berrar.com/resources/Berrar_MLJ-SI_SoccerPredictionChallenge2023_preprint.pdf">paper</a> and <a href="https://github.com/B8ni/berrar-ratings">I did it</a>.</p>
 <p>What I’ve understood is, if you are short in time go to Pearson method. No computational expensive and simple. He used <a href="">Pearson correlation</a> to identify <code>optimal_n</code> value for the best recency rolling features.</p>
 <p>I would like to investigate why the author has derived the optimal_n value considering goals conceded/scored and not including the ranking on the calculation. Althought ranking has not been included in the optimization process, the n value used to calculate the rolling ranking was, obviosly, the optimal_n which was based on different features. <strong>Is it right? Should I find a different optimal_n value for normalized ranking feat?</strong></p>
 <p>Anyhow, parameter n (optimal_n) has been used to compute the rolling features (home and away goals scores, home and away goals conceded, home and away normalized ranking).</p>
 <p>Finally, trained the KNN model on top of (likelyhood) most predictive features, iterating K from 3 up to 350.</p>
+</section>
+<section id="pros" class="level3">
+<h3 class="anchored" data-anchor-id="pros">Pros</h3>
+<p><a href="http://www.berrar.com">Prof Berrar</a>’s <a href="http://berrar.com/resources/Berrar_MLJ-SI_SoccerPredictionChallenge2023_preprint.pdf">paper</a> impressed me. His iterative approach of providing definitions, explanations, and examples is a refreshing change in academic writing. This, combined with the use of a less math-heavy approach, made the concepts easy to grasp.</p>
+<p>The 300,000-datapoint dataset is a fantastic resource, and I particularly appreciate the focus on just six features. Using only <code>home_goals</code> and <code>away_goals</code> to achieve an RMSE of <code>1.6339</code> on 44 leagues (approximately 700 data points) is remarkable.</p>
+<p>The choice of an <a href="">instance-based KNN model</a> aligns perfectly with the simplicity of the data. Just like me, it’s a “lazy learner” that avoids overfitting with such a small number of inputs.</p>
+</section>
+<section id="cons" class="level3">
+<h3 class="anchored" data-anchor-id="cons">Cons</h3>
+<p>I put leave-one-out cross validation (LOOCV) under this section because it seems overfit although KNN balances this issue by increasing the optimal_k (nearest neghboors). So LOOCV overfit but KNN within an handful of features likely balances the problem.</p>
+<p>Based on its <a href="http://berrar.com/resources/Berrar_EBCB_2nd_edition_Cross-validation_preprint.pdf">(other) paper</a>, Mr.&nbsp;Daniel compares different variants of cross validation, assessing that LOOCV and 10-fold cross-validation have the smallest bias.</p>
+<p>A quick observation: in this <a href="https://link.springer.com/article/10.1007/s10994-018-5747-8">paper (2019)</a>, Berrar randomly splited into a training set (90% of the data) and a hold-out test set (10% of the data) <a href="https://link.springer.com/article/10.1007/s10994-018-5747-8#Sec12">(Section 7.2.1)</a> which is totally different from this approach. Is it due to the different features?</p>
+<p>Single model for each league. Since the approach was to compute features league-by-league, the model must be developed league-by-league. It implies 44 models to deploy. 44 models to monitoring. 44 models to retrain.</p>
+<p>Meta league &gt; Super league.</p>
+<hr>
 </section>
 <section id="wip-notes" class="level3">
 <h3 class="anchored" data-anchor-id="wip-notes">WIP Notes</h3>
