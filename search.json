@@ -1,17 +1,66 @@
 [
   {
-    "objectID": "posts/2022-12-02-artificial-neurons.html",
-    "href": "posts/2022-12-02-artificial-neurons.html",
-    "title": "Quote from Ilya Sutskever",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Notes and ideas (in many cases, incomplete or broken)",
     "section": "",
-    "text": "Ilya Sutskever, 2022"
+    "text": "Paper Berrar 2024\n\n\n\n\n\nA Data- and Knowledge-Driven Framework for Developing Machine Learning Models to Predict Soccer Match Outcomes.\n\n\n\n\n\nSep 19, 2024\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n\n\n\n\n\n\nFinding the Average Odds Margin\n\n\n\n\n\nHow to Mange Odds Margin.\n\n\n\n\n\nAug 18, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n\n\n\n\n\n\nBe Like a Circus Performer\n\n\n\n\n\nEmbrace the Circus Performer Mentality.\n\n\n\n\n\nAug 12, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n\n\n\n\n\n\nGoal n. 8 - Read 12 books\n\n\n\n\n\nUpdates on Goal n.8 - Reading 12 books.\n\n\n\n\n\nJan 24, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n\n\n\n\n\n\n2023 Goals\n\n\n\n\n\nMy 20 tasks to achieve in 2023.\n\n\n\n\n\nDec 28, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n\n\n\n\n\n\nQuote from Karpathy\n\n\n\n\n\nAll Fallen Empires begin the game in Sleeping status. Despite their complete development and immense power, the Fallen Empires will remain passive, staying within their borders and taking no action unless provoked.\n\n\n\n\n\nDec 13, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n\n\n\n\n\n\nQuote from Bottoni\n\n\n\n\n\nDon’t be afraid to build.\n\n\n\n\n\nDec 13, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n\n\n\n\n\n\nNeural Network\n\n\n\n\n\nWikibot Neural Network.\n\n\n\n\n\nDec 12, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n\n\n\n\n\n\nQuote from Ilya Sutskever\n\n\n\n\n\nDeep learning is based on the audacious conjecture that biological neurons and artificial neurons are not that different. Its success to date is evidence for this belief.\n\n\n\n\n\nDec 2, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n\n\n\n\n\n\nThe Random Forest Guy\n\n\n\n\n\nAluminium Scrap Box Classification.\n\n\n\n\n\nNov 17, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\nWikibot Confusion Matrix.\n\n\n\n\n\nNov 15, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n\n\n\n\n\n\nHow Random Forest Can Empower A Plant\n\n\n\n\n\nPractical use case of Random Forest in Industrial environment.\n\n\n\n\n\nOct 26, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n\n\n\n\n\n\nLearning AI And Failing Miserably\n\n\n\n\n\nA minimal guide of failing learning AI.\n\n\n\n\n\nAug 7, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/2022-12-02-artificial-neurons.html#reference",
-    "href": "posts/2022-12-02-artificial-neurons.html#reference",
-    "title": "Quote from Ilya Sutskever",
+    "objectID": "posts/2023-08-12-circus-performer.html",
+    "href": "posts/2023-08-12-circus-performer.html",
+    "title": "Be Like a Circus Performer",
     "section": "",
-    "text": "Ilya Sutskever, 2022"
+    "text": "Running a startup successfully often requires adopting the mindset of a circus performer. Imagine everyone coming to watch a show, where the same performer who wows the audience with a somersault is the one who took your ticket and ushered you to your seat.\nBeing a generalist is often the best approach — and sometimes, the only road to success.\nIf the term generalist doesn’t resonate with you, think of yourself as a versatile circus performer.\nEmbrace the idea of tearing up the ticket, giving a stellar performance, and then dismantling your equipment.\nYes, you have to be ready to step outside your comfort zone, and at times, even your passion, if you truly want to excel.\nNow, I’m performing.\nBuy my ticket.\n\nIf you have any suggestions, recommendations, or corrections please reach out to me."
+  },
+  {
+    "objectID": "posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html#why-another-blog-post",
+    "href": "posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html#why-another-blog-post",
+    "title": "Learning AI And Failing Miserably",
+    "section": "Why another blog post?",
+    "text": "Why another blog post?\nI told you, you had the wrong guy. Anyway, I’ll try to answer.\nInternet is a fantastic place, you are plugged into a reality where you can learn whatever you want, whenever you want and at you pace.\nWhat I didn’t find yet - on web2.0 - is how to fail. How to fail programmatically, periodically and frequently. As you can image, I failed a lot and hope to keep failing at high rate.\nFor me, failing is the essence of learning, the essence of success. The Lhumann’s indicator 1 of productivity was permanent notes produced per day. The Bottoni’s indicator 2 of success is a simple counter of failings: greater the better.\nEverything started long time ago, maybe 6 years ago. I was trying to learning Machine Learning the old way: 1. collected all theoretical books; 2. collected all theoretical courses; 3. started the journey; 4. felt uncomfortable; 5. stopped; 6. and repeat the process with a slightly different theoretical book and course.\nThat’s guided me here.\n5 months ago I restarted again. The approach to Machine Learning was gradually different and this seems to be very efficient and effective.\nI followed FastAI course. In one week I completed all lectures and developed a simple system: - a box classifier which identified the kind of box with an accuracy of 97%; - a web app, which took a picture, sent it to the model and showed the result; - everything deployed in test environment.\nHope to show it as soon as my current company will make it possible.\nIt was funny, I accomplished more in that week then in 6 years of try and fail. But everything died again.\nI got overwhelmed at work. It pushed me to say goodbye to Machine Learning. Another KO. You know, when something really interesting you, one day you succeed. That day is not today.\nAfter other 5 months, today, I’m back to the mean. To the normality 3. I understood that life is not easy and is not linear. At the time I’m writing both my sons got Covid19, high fever, zero sleep. I understood to embrace those things, the gifts that life give to us 4.\nI’m ready to start again, from chapter 0."
+  },
+  {
+    "objectID": "posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html#whats-my-next-step",
+    "href": "posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html#whats-my-next-step",
+    "title": "Learning AI And Failing Miserably",
+    "section": "What’s my next step?",
+    "text": "What’s my next step?\nI restarted ML journey and I’m happy.\nDuring those years full of failures, I sharpened my skills, where I improved a lot, I think. From note taking to programming. From learning to memorizing. All is summarized in: be more dynamic and less static.\nLet me pretend, for a moment, that I will accomplish the following steps.\nTo be able to mastering Machine Learning with FastAI approach I need to be a practitioner. To be a practitioner a have to do lots practice. To do lots practice a have to spend extra hours. To be able to spend extra hours I have to be motivated. To be motivated I have to be persistent. To be persistent I have to enjoy it.\nThat’s the chaining rule of the heaven.\n\nI listen to everything on 1x speed. I admire all you folks that do 1.5x or 2x, but my brain needs time to process the ideas. Sometimes I pause the podcast/audiobook & just reflect on a single sentence for a while. I used to think I need to improve this but now I just accept it.\n\nI’m happy to read this from Lex Fridman. It means I have to watch Jeremy at 0.5x divided by few tens speed.\nThe approach to learning, as said before, seems working. So that’s what I’ll do: 1. Review last notes, if there’s something 2. Watch lecture, first iteration. All in one breath 3. Watch lecture, second iteration. Pausing as needed, experimenting, exploring and building (lots of -ing) 4. Going through FastAI book, kaggle notes and random links 5 5. Do questionnaire and find weakness 6. Focus on a project, only one. Do it well\nThat’s wonderful approach doesn’t come from my neurons but are suggested by Radek Osmulski’s book and Jeremy Howard tips. Yes, it’s strange, I bought a book. I’m not used to.\nAdditional and personal trick to force me studying is live streaming my session study. Embarrassing and funny moment will face.\nDeadline: end of August 2022.\nI can infinitely try to learn ML and get a finite result, as per Zeno’s Paradox.\nI’ll keep you updated.\nNow let’s start. Again."
+  },
+  {
+    "objectID": "posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html#footnotes",
+    "href": "posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html#footnotes",
+    "title": "Learning AI And Failing Miserably",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nLuhmann wrote prolifically, with more than 70 books and nearly 400 scholarly articles published on a variety of subjects↩︎\nMe and I wrote only this blog post↩︎\nStandard deviation equals to zero↩︎\nScientists defined it as Entropy↩︎\nAlso known as syntopic reading↩︎"
+  },
+  {
+    "objectID": "posts/paper-berrar-2024.html",
+    "href": "posts/paper-berrar-2024.html",
+    "title": "Paper Berrar 2024",
+    "section": "",
+    "text": "What I like\nI really appreciate the paper. Prof Berrar iteratively provides definitions, definitions with explainations and examples. I found rarely this apporach in papers. Maybe lesser heavy math paper has helped me as well to easily digest it.\nI appreciate the 300k-ish dataset.\nI appreciate few features used: only 6.\nI appreciate readily available input used to develop such a predictive features power. Only home_goals and away_goals. A reminder: with only these 6 input, the author achieved an RMSE of 1.6339 on the test set of ~700 rows over 44 leagues.\nI appreciate the instance based model KNN. Which is not complex, lazy like me and not inclined to overfit with these few input.\n\n\nWhat I don’t like\nI put leave-one-out cross validation (LOOCV) under this section because it seems overfit although KNN balances this issue by increasing the optimal_k (nearest neghboors). So LOOCV overfit but KNN within an handful of features likely balances the problem.\nBased on its (other) paper, Mr. Daniel compares different variants of cross validation, assessing that LOOCV and 10-fold cross-validation have the smallest bias. An quick observation: in this paper (2019), Berrar randomly splited into a training set (90% of the data) and a hold-out test set (10% of the data) (Section 7.2.1) which is totally different from this approach. Is it due to the different features?\nSingle model for each league. Since the approach was to compute features league-by-league, the model must be developed league-by-league. It implies 44 models to deploy. 44 models to monitoring. 44 models to retrain.\n\n\nMy findings\nIn my heroic attemps, I tried to replicare the paper and I did it.\nWhat I’ve understood is, if you are short in time go to Pearson method. No computational expensive and simple. He used Pearson correlation to identify optimal_n value for the best recency rolling features.\nI would like to investigate why the author has derived the optimal_n value considering goals conceded/scored and not including the ranking on the calculation. Althought ranking has not been included in the optimization process, the n value used to calculate the rolling ranking was, obviosly, the optimal_n which was based on different features. Is it right? Should I find a different optimal_n value for normalized ranking feat?\nAnyhow, parameter n (optimal_n) has been used to compute the rolling features (home and away goals scores, home and away goals conceded, home and away normalized ranking).\nFinally, trained the KNN model on top of (likelyhood) most predictive features, iterating K from 3 up to 350.\n\n\nWIP Notes\n\nPearson correlation to determine optimal n value\n\nOn seasons 2010-2023 the optimal n value is 43 for PL\nOn seasons 2000/2023 the optimal n value is 59 for PL vs 60 from the author.\n\nthis divergence may be due some missing datapoint i got from Buchdhal data.\nadditionally i’ve icluded the partial 2023 season. the author haven’t that data.\ni didn’t spend much time on data processing with Buchdhal datasets (PL).\n\nusing the same dataset of the author, has been decreased the pearson value correlation:\n\nfrom 0.461, n = 43 and about 4000 rows (2010/2023)\nto 0.449, n=59 and about 7000 rows (2000/2023)\n\n\nrmse on training/validation since loocv doens’t have a validation at all, is lower on the dataset 2000/2023.\n\nk=20, rmse = 1.295 (dataset 2000/2023) vs k=20, rmse = 1.334 (dataset 2010/2023)\n\nonce found same rmse on a k range, select the smallest:\n\nminimize complexity\nunnecessary smoothing\nmodel remains sensitive to local variations\n\noptimal_k (knn on score) on same dataset of the author is different on PL:\n\nmy optimal_k = 244\nauthor optimal_k = 211\n\ni’ve removed from the knn training the 2022 and 2023 seasons. will be used for the test set\nrmse on test set 2022 and 2023 with knn trained on 2010/2021 is 1.79.\nrmse on test set 2022 and 2023 with knn trained on 2000/2021 is 1.82.\nthe pearson correlation on bundesliga is really low. doesn’t reach 0.4. additionally, rmse on test set (2022) is high: 1.88 vs 1.73 in PL.\noptimal_n on GER1 is 71 vs author optimal_n = 64 (2000/2021)\noptimal_n on FRA1 is 86 with 0.3583 as pearson correlation (2000/2021)\noptimal_n on ITA1 is 47 with 0.4188 as pearson correlation (2000/2021)\noptimal_n on SPA1 is 99 with 0.4554 as pearson correlation (2000/2021)\noptimal_n meta league is 91 with 0.3689 as pearson correlation (2000/2021)\noptimal_k on GER1 k=230. not found the author optimal_k (2000/2021)\noptimal_k 268 on GER2, train_RMSE: 1.317 (2000/2021)\nGER2 although has an higher RMSE on training, returned the smallest RMSE on test with 1.663.\n\nit implies a lower variance on the target since GER1 returned an test_RMSE = 1.88\n\noptimal_n GER2 27 with 0.2318 as pearson correlation (2000/2021)\noptimal_k 141 on FRA1, train_RMSE: 1.203 (2000/2021)\noptimal_k 118 on SPA1, train_RMSE: 1.253 (2000/2021)\ntest_rmse: 1.68 on FRA1 (2022).\ntest_rmse: 1.51 on ITA1 (2022).\ntest_rmse: 1.45 on SPA1 (2022).\ntest_rmse: 1.88 on GER1 (2022).\ntest_rmse: 1.73 on ENG1 (2022).\navg_test_rmse: 1.65 on all 5 top leagues. author achieved 1.6339 on all 44 leagues (super league)\nincreasing the features (corners, etc…) don’t improve the metric.\n\nwith additional features (total 17 [7 std + 10 new]), in GER1 (2000/2021) RMSE on test (2022) is 1.9154 vs 1.88 w/ standard features\nwith all individual features used to calculate pearson correlation, in GER1 (2000/2021) RMSE on test (2022) is 1.9202 vs 1.88 w/ standard features\nmaybe additional features are not developed correctly\nmaybe using all additional features as individual differences on the pearson correlation is not a good choice\n\nafter an initial analysis, meta league model &gt; super leauge model\n\nmeta league RMSE on test (2022): 1.6190\nsuper league RMSE on test (2022): 1.65\n\noptimization question\n\nfinding optimal_n on the best subset features\n\nit means combining a subset or more then a subset of individual differences and total differences\n\nexample:\n\ndifference_total_goals_scored + difference_goals_scored =&gt; highest correlation\nother more combo =&gt; highest correlation\n\n\n\n\noptimal_k in meta league is 211\n\nRMSE_test improved 1.6144"
+  },
+  {
+    "objectID": "posts/2022-12-13-dont-afraid-to-build.html",
+    "href": "posts/2022-12-13-dont-afraid-to-build.html",
+    "title": "Quote from Bottoni",
+    "section": "",
+    "text": "Bottoni, 2022"
+  },
+  {
+    "objectID": "posts/2022-12-13-dont-afraid-to-build.html#reference",
+    "href": "posts/2022-12-13-dont-afraid-to-build.html#reference",
+    "title": "Quote from Bottoni",
+    "section": "",
+    "text": "Bottoni, 2022"
+  },
+  {
+    "objectID": "posts/2023-01-24-reading-book-2023.html",
+    "href": "posts/2023-01-24-reading-book-2023.html",
+    "title": "Goal n. 8 - Read 12 books",
+    "section": "",
+    "text": "Ken Follet - Eye of the Needle, 2023/01\nF. Hermans - The Programmer’s Brain, 2023/10\nAndre’ van der Hoek - Software Design Decoded, Dropped\nJ. Ousterhout - A Philosophy of Software Design, In progress\nLuigi Fontana - The Path to Longevity, In progress\n\nIf you have any suggestions, recommendations, or corrections please reach out to me."
   },
   {
     "objectID": "posts/aluminium-scrap-box/2022-10-26-aluminium-scraps-box-weight-random-forest-post.html#preamble",
@@ -68,6 +117,118 @@
     "title": "How Random Forest Can Empower A Plant",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nWe have developed some tools to speed up and managing the process of the Aluminium scarps weighting↩︎\nA gentle introduction to Data Leakage can be found on Kaggle course↩︎\nA formal introduction to Data Leakage can be found on Leakage in Data Mining paper↩︎\nWeight - Box Weight = Net Weight↩︎\nWe have developed some tools to speed up and managing the process of the Aluminium scarps weighting↩︎"
+  },
+  {
+    "objectID": "posts/2022-12-28-goals-of-2023.html",
+    "href": "posts/2022-12-28-goals-of-2023.html",
+    "title": "2023 Goals",
+    "section": "",
+    "text": "1000h on learning ML\n\ncomplete FastAI Part 1 course\ncomplete FastAI Part 2 course\ndeploy course\nrelease 4 ML software in production\n\ndetails: release a software each 3 months\n\nuse seriously ChatGPT and or CoPilot\n\nwriting 52 articles\n\ndetails: write an article per week on the weekend\n\nuse at least 300 days Anki\nbecome MLSE this year\n\ndetails: change job description or change job\n\nearning 60k per year\nsmall but stable revenue with side project\n1.48min/100m swimming\nread 12 books\nmeditate 365 days\nyoga 250 days\nmorning gratitude and appreciation 365 days\nstart teaching logic to my son\nstart playing piano\nreach 22k of cash on Sep 2023 to pay dad’s debit\nparticipate at festivaldellamente\nparticipate at versilianafestival\nparticipate at 1 AI conference\nparticipate at 1 SWE conference\nno sugar\n1800 minutes of audiobook/podcast\n\ndetails: 30 min per working-day while driving\n\n\nIf you have any suggestions, recommendations, or corrections please reach out to me."
+  },
+  {
+    "objectID": "posts/2022-12-02-artificial-neurons.html",
+    "href": "posts/2022-12-02-artificial-neurons.html",
+    "title": "Quote from Ilya Sutskever",
+    "section": "",
+    "text": "Ilya Sutskever, 2022"
+  },
+  {
+    "objectID": "posts/2022-12-02-artificial-neurons.html#reference",
+    "href": "posts/2022-12-02-artificial-neurons.html#reference",
+    "title": "Quote from Ilya Sutskever",
+    "section": "",
+    "text": "Ilya Sutskever, 2022"
+  },
+  {
+    "objectID": "posts/2022-12-13-fallen-empire.html",
+    "href": "posts/2022-12-13-fallen-empire.html",
+    "title": "Quote from Karpathy",
+    "section": "",
+    "text": "Karpathy, 2022"
+  },
+  {
+    "objectID": "posts/2022-12-13-fallen-empire.html#reference",
+    "href": "posts/2022-12-13-fallen-empire.html#reference",
+    "title": "Quote from Karpathy",
+    "section": "",
+    "text": "Karpathy, 2022"
+  },
+  {
+    "objectID": "posts/2022-12-12-neural-network.html",
+    "href": "posts/2022-12-12-neural-network.html",
+    "title": "Neural Network",
+    "section": "",
+    "text": "Neural Network is a mathematical function.\nThis mathematical function is based on inputs and parameters.\nInputs and parameters are multiplied and added them up. Negative values are set to zero.\nThese operations are repeated untill the error of prediction is minimized."
+  },
+  {
+    "objectID": "posts/2022-12-12-neural-network.html#one-liner-definition",
+    "href": "posts/2022-12-12-neural-network.html#one-liner-definition",
+    "title": "Neural Network",
+    "section": "",
+    "text": "Neural Network is a mathematical function.\nThis mathematical function is based on inputs and parameters.\nInputs and parameters are multiplied and added them up. Negative values are set to zero.\nThese operations are repeated untill the error of prediction is minimized."
+  },
+  {
+    "objectID": "posts/2022-12-12-neural-network.html#motivation",
+    "href": "posts/2022-12-12-neural-network.html#motivation",
+    "title": "Neural Network",
+    "section": "Motivation",
+    "text": "Motivation\nThese 3 simple steps are the foundation of any deep learning model.\nImplicitally they touch most important parts of NN: 1. Inputs and parameters are multiplied and added them up =&gt; Matrix multiplication; 2. Negative values are set to zero =&gt; Rectified Linear function; 3. Operations repeated untill error of prediction is minimized =&gt; Gradient descent on Loss function.\nThe most complex deep learning model is built on these foundamentals. Deeply understanding them will help to breaking every complex model out."
+  },
+  {
+    "objectID": "posts/2022-12-12-neural-network.html#implementation",
+    "href": "posts/2022-12-12-neural-network.html#implementation",
+    "title": "Neural Network",
+    "section": "Implementation",
+    "text": "Implementation\ndef f(x): return  3*x**2 + 2*x + 1\ndef quad(a, b, c, x): return a*x**2 + b*x + c\ndef noise(x, scale): return np.random.normal(scale=scale, size=x.shape)\ndef add_noise(x, mult, add): return x * (1+noise(x,mult)) + noise(x,add)\nimport numpy as np\nimport torch\n\nnp.random.seed(42)\n\nx = torch.linspace(-2, 2, steps=20)[:,None]\ny = add_noise(f(x), 0.15, 1.5)\nfrom functools import partial\n\ndef mk_quad(a, b, c): return partial(quad, a, b, c)\ndef mae(pred, actual): return torch.abs(pred-actual).mean()\ndef quad_mae(params):\n    f = mk_quad(*params)\n    return mae(f(x), y)\nimport torch\nabc = torch.Tensor([1.1, 1.1, 1.1])\nabc.requires_grad_()\n\nloss = quad_mae(abc)\nfor i in range(10):\n    loss = quad_mae(abc)\n    loss.backward()\n    with torch.no_grad(): abc -= abc.grad*0.01\n    print(f'step={i}; loss={loss:.2f}')\nstep=0; loss=2.42\nstep=1; loss=2.40\nstep=2; loss=2.36\nstep=3; loss=2.30\nstep=4; loss=2.21\nstep=5; loss=2.11\nstep=6; loss=1.98\nstep=7; loss=1.85\nstep=8; loss=1.72\nstep=9; loss=1.58"
+  },
+  {
+    "objectID": "posts/2022-12-12-neural-network.html#take-away",
+    "href": "posts/2022-12-12-neural-network.html#take-away",
+    "title": "Neural Network",
+    "section": "Take Away",
+    "text": "Take Away\n\nMatrix multiplication is the key to quickly calculate multuplication and addition of inputs and parameters.\nGradient descent is the tool used to understand how to minimize the loss function, since loss function composed by parameters abc.\nRectified Linear function, known as ReLU, is a linear function which takes input and the ouput is equals to the input. If the input is negative the output is zero. It’s defined as: \\(f(x) = max(0, x)\\)\n\n\nFurther Work\n\nAnkify:\n\nMatrix multiplication\nGradient descent\nReLU\nEnd to end GD which every DL model is based on\n\nDevelop a Neural Network from scratch"
+  },
+  {
+    "objectID": "posts/2022-12-12-neural-network.html#references",
+    "href": "posts/2022-12-12-neural-network.html#references",
+    "title": "Neural Network",
+    "section": "References",
+    "text": "References\n\nNeural net foundations - Jeremy Howard, 2022\nHow does a neural net really work? - Jeremy Howard, 2022\nChatting with ChatGPT"
+  },
+  {
+    "objectID": "posts/average-odds-margin.html#work-based-on",
+    "href": "posts/average-odds-margin.html#work-based-on",
+    "title": "Finding the Average Odds Margin",
+    "section": "Work based on",
+    "text": "Work based on\nPaper: The Wisdom of the Crowd\nAuthor: Joseph Buchdahl"
+  },
+  {
+    "objectID": "posts/average-odds-margin.html#intuition",
+    "href": "posts/average-odds-margin.html#intuition",
+    "title": "Finding the Average Odds Margin",
+    "section": "Intuition",
+    "text": "Intuition\nMr. Joseph Buchdahl shared a smart way to figure out the margin, called Margin Weights Proportional to the Odds (pages 5 - 9).\nEver wondered how odds margin actually works? You’re spot on, the WOC 1 strategy by Mr. Buchdahl works really well with the MPO 2 method.\nNow, let’s put aside Mr. Joseph’s strategy and think about this: what’s the fairest and most reliable way to calculate the margin? In my opinion, it’s considering all options.\nWhy, you may ask? Often, we turn to ensemble models to minimize variability while enhancing consistency. Rigorously testing diverse methods and retaining only those with minimal correlation can lead us to a more precise reality.\nThe process is quite straightforward: Gather the margins obtained from these three or less distinct methods and compute the average odds. It’s a remarkably simple approach that offers valuable insights.\nWisdom of the CrowdMargin Proportional to Odds"
+  },
+  {
+    "objectID": "posts/average-odds-margin.html#margin-implementation",
+    "href": "posts/average-odds-margin.html#margin-implementation",
+    "title": "Finding the Average Odds Margin",
+    "section": "Margin Implementation",
+    "text": "Margin Implementation\nMPO"
+  },
+  {
+    "objectID": "posts/average-odds-margin.html#uncorrelated-margins",
+    "href": "posts/average-odds-margin.html#uncorrelated-margins",
+    "title": "Finding the Average Odds Margin",
+    "section": "Uncorrelated Margins",
+    "text": "Uncorrelated Margins"
+  },
+  {
+    "objectID": "posts/average-odds-margin.html#references",
+    "href": "posts/average-odds-margin.html#references",
+    "title": "Finding the Average Odds Margin",
+    "section": "References:",
+    "text": "References:\n\n\n\nInteresting discussion on Margin calculation"
   },
   {
     "objectID": "posts/random-forest-guy/2022-11-17-the-random-forest-guy.html",
@@ -161,171 +322,10 @@
     "text": "Implementation\nIf you have any suggestions, recommendations, or corrections please reach out to me."
   },
   {
-    "objectID": "posts/2023-01-24-reading-book-2023.html",
-    "href": "posts/2023-01-24-reading-book-2023.html",
-    "title": "Goal n. 8 - Read 12 books",
-    "section": "",
-    "text": "Ken Follet - Eye of the Needle, 2023/01\nF. Hermans - The Programmer’s Brain, 2023/10\nAndre’ van der Hoek - Software Design Decoded, Dropped\nJ. Ousterhout - A Philosophy of Software Design, In progress\nLuigi Fontana - The Path to Longevity, In progress\n\nIf you have any suggestions, recommendations, or corrections please reach out to me."
-  },
-  {
-    "objectID": "posts/2023-11-22-hexagonal-architecture.html",
-    "href": "posts/2023-11-22-hexagonal-architecture.html",
-    "title": "Hexagonal Architecture",
-    "section": "",
-    "text": "Hexagonal architecture is made by core and actors.\nCore is the business logic needed to solve the problem. It’s orthogonal to the infrastructure. Orthogonal means the core is decoupled from the infra. Even better definition is: the core is technology agnostic.\nThe core defines how to achieve the business logic goals.\nSo, what’s the core? it’s the business logic uncorrelated to the infrastructure.\nAnd now, what are the actors? Are those that trigger the core (driver actors) or those that has been triggered by the core (driven actors).\nExample of actors?\nActors in programming can be abstracted as:\n\nports -&gt; interfaces which defines how the communication between actors and core happens\n\ndriver ports -&gt; a set of actions the core provides to the outside (driver actor triggers the core)\ndriven ports -&gt; a set of actions that actor has to implement (driven actor triggered by the core)\n\nadapters -&gt; are simply the implementations of the interfaces’ ports which are responsible to transform and adapt the request in order core can interact.\n\nExample of adapters:\n\nDriver adapters are handlers.\nDriven adapters are repositories.\n\nFocus and energy on implementation of business logic. Define use cases and work on it. Forget everything.\nWhat’s functional requirements? Use cases.\n\n\nReferences:\n\nhttps://jmgarridopaz.github.io/content/hexagonalarchitecture.html\nhttps://jmgarridopaz.github.io/content/resources.html\nhttps://alistair.cockburn.us/hexagonal-architecture/\nhttps://medium.com/swlh/golangs-interfaces-explained-with-mocks-886f69eca6f0"
-  },
-  {
-    "objectID": "posts/2022-12-12-neural-network.html",
-    "href": "posts/2022-12-12-neural-network.html",
-    "title": "Neural Network",
-    "section": "",
-    "text": "Neural Network is a mathematical function.\nThis mathematical function is based on inputs and parameters.\nInputs and parameters are multiplied and added them up. Negative values are set to zero.\nThese operations are repeated untill the error of prediction is minimized."
-  },
-  {
-    "objectID": "posts/2022-12-12-neural-network.html#one-liner-definition",
-    "href": "posts/2022-12-12-neural-network.html#one-liner-definition",
-    "title": "Neural Network",
-    "section": "",
-    "text": "Neural Network is a mathematical function.\nThis mathematical function is based on inputs and parameters.\nInputs and parameters are multiplied and added them up. Negative values are set to zero.\nThese operations are repeated untill the error of prediction is minimized."
-  },
-  {
-    "objectID": "posts/2022-12-12-neural-network.html#motivation",
-    "href": "posts/2022-12-12-neural-network.html#motivation",
-    "title": "Neural Network",
-    "section": "Motivation",
-    "text": "Motivation\nThese 3 simple steps are the foundation of any deep learning model.\nImplicitally they touch most important parts of NN: 1. Inputs and parameters are multiplied and added them up =&gt; Matrix multiplication; 2. Negative values are set to zero =&gt; Rectified Linear function; 3. Operations repeated untill error of prediction is minimized =&gt; Gradient descent on Loss function.\nThe most complex deep learning model is built on these foundamentals. Deeply understanding them will help to breaking every complex model out."
-  },
-  {
-    "objectID": "posts/2022-12-12-neural-network.html#implementation",
-    "href": "posts/2022-12-12-neural-network.html#implementation",
-    "title": "Neural Network",
-    "section": "Implementation",
-    "text": "Implementation\ndef f(x): return  3*x**2 + 2*x + 1\ndef quad(a, b, c, x): return a*x**2 + b*x + c\ndef noise(x, scale): return np.random.normal(scale=scale, size=x.shape)\ndef add_noise(x, mult, add): return x * (1+noise(x,mult)) + noise(x,add)\nimport numpy as np\nimport torch\n\nnp.random.seed(42)\n\nx = torch.linspace(-2, 2, steps=20)[:,None]\ny = add_noise(f(x), 0.15, 1.5)\nfrom functools import partial\n\ndef mk_quad(a, b, c): return partial(quad, a, b, c)\ndef mae(pred, actual): return torch.abs(pred-actual).mean()\ndef quad_mae(params):\n    f = mk_quad(*params)\n    return mae(f(x), y)\nimport torch\nabc = torch.Tensor([1.1, 1.1, 1.1])\nabc.requires_grad_()\n\nloss = quad_mae(abc)\nfor i in range(10):\n    loss = quad_mae(abc)\n    loss.backward()\n    with torch.no_grad(): abc -= abc.grad*0.01\n    print(f'step={i}; loss={loss:.2f}')\nstep=0; loss=2.42\nstep=1; loss=2.40\nstep=2; loss=2.36\nstep=3; loss=2.30\nstep=4; loss=2.21\nstep=5; loss=2.11\nstep=6; loss=1.98\nstep=7; loss=1.85\nstep=8; loss=1.72\nstep=9; loss=1.58"
-  },
-  {
-    "objectID": "posts/2022-12-12-neural-network.html#take-away",
-    "href": "posts/2022-12-12-neural-network.html#take-away",
-    "title": "Neural Network",
-    "section": "Take Away",
-    "text": "Take Away\n\nMatrix multiplication is the key to quickly calculate multuplication and addition of inputs and parameters.\nGradient descent is the tool used to understand how to minimize the loss function, since loss function composed by parameters abc.\nRectified Linear function, known as ReLU, is a linear function which takes input and the ouput is equals to the input. If the input is negative the output is zero. It’s defined as: \\(f(x) = max(0, x)\\)\n\n\nFurther Work\n\nAnkify:\n\nMatrix multiplication\nGradient descent\nReLU\nEnd to end GD which every DL model is based on\n\nDevelop a Neural Network from scratch"
-  },
-  {
-    "objectID": "posts/2022-12-12-neural-network.html#references",
-    "href": "posts/2022-12-12-neural-network.html#references",
-    "title": "Neural Network",
-    "section": "References",
-    "text": "References\n\nNeural net foundations - Jeremy Howard, 2022\nHow does a neural net really work? - Jeremy Howard, 2022\nChatting with ChatGPT"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
     "text": "There’s nothing to say about me. I’m another human being, like you."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Notes and ideas (in many cases, incomplete or broken)",
-    "section": "",
-    "text": "Hexagonal Architecture\n\n\n\n\n\nWikibot Hexagonal Architecture.\n\n\n\n\n\n\nNov 22, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nFinding the Average Odds Margin\n\n\n\n\n\nHow to Mange Odds Margin.\n\n\n\n\n\n\nAug 18, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nBe Like a Circus Performer\n\n\n\n\n\nEmbrace the Circus Performer Mentality.\n\n\n\n\n\n\nAug 12, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nGoal n. 8 - Read 12 books\n\n\n\n\n\nUpdates on Goal n.8 - Reading 12 books.\n\n\n\n\n\n\nJan 24, 2023\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\n2023 Goals\n\n\n\n\n\nMy 20 tasks to achieve in 2023.\n\n\n\n\n\n\nDec 28, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nQuote from Bottoni\n\n\n\n\n\nDon’t be afraid to build.\n\n\n\n\n\n\nDec 13, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nQuote from Karpathy\n\n\n\n\n\nAll Fallen Empires begin the game in Sleeping status. Despite their complete development and immense power, the Fallen Empires will remain passive, staying within their borders and taking no action unless provoked.\n\n\n\n\n\n\nDec 13, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nNeural Network\n\n\n\n\n\nWikibot Neural Network.\n\n\n\n\n\n\nDec 12, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nQuote from Ilya Sutskever\n\n\n\n\n\nDeep learning is based on the audacious conjecture that biological neurons and artificial neurons are not that different. Its success to date is evidence for this belief.\n\n\n\n\n\n\nDec 2, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nThe Random Forest Guy\n\n\n\n\n\nAluminium Scrap Box Classification.\n\n\n\n\n\n\nNov 17, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nConfusion Matrix\n\n\n\n\n\nWikibot Confusion Matrix.\n\n\n\n\n\n\nNov 15, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nHow Random Forest Can Empower A Plant\n\n\n\n\n\nPractical use case of Random Forest in Industrial environment.\n\n\n\n\n\n\nOct 26, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\n  \n\n\n\n\nLearning AI And Failing Miserably\n\n\n\n\n\nA minimal guide of failing learning AI.\n\n\n\n\n\n\nAug 7, 2022\n\n\nFrancesco Bottoni\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/2022-12-13-dont-afraid-to-build.html",
-    "href": "posts/2022-12-13-dont-afraid-to-build.html",
-    "title": "Quote from Bottoni",
-    "section": "",
-    "text": "Bottoni, 2022"
-  },
-  {
-    "objectID": "posts/2022-12-13-dont-afraid-to-build.html#reference",
-    "href": "posts/2022-12-13-dont-afraid-to-build.html#reference",
-    "title": "Quote from Bottoni",
-    "section": "",
-    "text": "Bottoni, 2022"
-  },
-  {
-    "objectID": "posts/average-odds-margin.html#work-based-on",
-    "href": "posts/average-odds-margin.html#work-based-on",
-    "title": "Finding the Average Odds Margin",
-    "section": "Work based on",
-    "text": "Work based on\nPaper: The Wisdom of the Crowd\nAuthor: Joseph Buchdahl"
-  },
-  {
-    "objectID": "posts/average-odds-margin.html#intuition",
-    "href": "posts/average-odds-margin.html#intuition",
-    "title": "Finding the Average Odds Margin",
-    "section": "Intuition",
-    "text": "Intuition\nMr. Joseph Buchdahl shared a smart way to figure out the margin, called Margin Weights Proportional to the Odds (pages 5 - 9).\nEver wondered how odds margin actually works? You’re spot on, the WOC 1 strategy by Mr. Buchdahl works really well with the MPO 2 method.\nNow, let’s put aside Mr. Joseph’s strategy and think about this: what’s the fairest and most reliable way to calculate the margin? In my opinion, it’s considering all options.\nWhy, you may ask? Often, we turn to ensemble models to minimize variability while enhancing consistency. Rigorously testing diverse methods and retaining only those with minimal correlation can lead us to a more precise reality.\nThe process is quite straightforward: Gather the margins obtained from these three or less distinct methods and compute the average odds. It’s a remarkably simple approach that offers valuable insights.\nWisdom of the CrowdMargin Proportional to Odds"
-  },
-  {
-    "objectID": "posts/average-odds-margin.html#margin-implementation",
-    "href": "posts/average-odds-margin.html#margin-implementation",
-    "title": "Finding the Average Odds Margin",
-    "section": "Margin Implementation",
-    "text": "Margin Implementation\nMPO"
-  },
-  {
-    "objectID": "posts/average-odds-margin.html#uncorrelated-margins",
-    "href": "posts/average-odds-margin.html#uncorrelated-margins",
-    "title": "Finding the Average Odds Margin",
-    "section": "Uncorrelated Margins",
-    "text": "Uncorrelated Margins"
-  },
-  {
-    "objectID": "posts/average-odds-margin.html#references",
-    "href": "posts/average-odds-margin.html#references",
-    "title": "Finding the Average Odds Margin",
-    "section": "References:",
-    "text": "References:\n\n\n\nInteresting discussion on Margin calculation"
-  },
-  {
-    "objectID": "posts/2022-12-28-goals-of-2023.html",
-    "href": "posts/2022-12-28-goals-of-2023.html",
-    "title": "2023 Goals",
-    "section": "",
-    "text": "1000h on learning ML\n\ncomplete FastAI Part 1 course\ncomplete FastAI Part 2 course\ndeploy course\nrelease 4 ML software in production\n\ndetails: release a software each 3 months\n\nuse seriously ChatGPT and or CoPilot\n\nwriting 52 articles\n\ndetails: write an article per week on the weekend\n\nuse at least 300 days Anki\nbecome MLSE this year\n\ndetails: change job description or change job\n\nearning 60k per year\nsmall but stable revenue with side project\n1.48min/100m swimming\nread 12 books\nmeditate 365 days\nyoga 250 days\nmorning gratitude and appreciation 365 days\nstart teaching logic to my son\nstart playing piano\nreach 22k of cash on Sep 2023 to pay dad’s debit\nparticipate at festivaldellamente\nparticipate at versilianafestival\nparticipate at 1 AI conference\nparticipate at 1 SWE conference\nno sugar\n1800 minutes of audiobook/podcast\n\ndetails: 30 min per working-day while driving\n\n\nIf you have any suggestions, recommendations, or corrections please reach out to me."
-  },
-  {
-    "objectID": "posts/2023-08-12-circus-performer.html",
-    "href": "posts/2023-08-12-circus-performer.html",
-    "title": "Be Like a Circus Performer",
-    "section": "",
-    "text": "Running a startup successfully often requires adopting the mindset of a circus performer. Imagine everyone coming to watch a show, where the same performer who wows the audience with a somersault is the one who took your ticket and ushered you to your seat.\nBeing a generalist is often the best approach — and sometimes, the only road to success.\nIf the term generalist doesn’t resonate with you, think of yourself as a versatile circus performer.\nEmbrace the idea of tearing up the ticket, giving a stellar performance, and then dismantling your equipment.\nYes, you have to be ready to step outside your comfort zone, and at times, even your passion, if you truly want to excel.\nNow, I’m performing.\nBuy my ticket.\n\nIf you have any suggestions, recommendations, or corrections please reach out to me."
-  },
-  {
-    "objectID": "posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html#why-another-blog-post",
-    "href": "posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html#why-another-blog-post",
-    "title": "Learning AI And Failing Miserably",
-    "section": "Why another blog post?",
-    "text": "Why another blog post?\nI told you, you had the wrong guy. Anyway, I’ll try to answer.\nInternet is a fantastic place, you are plugged into a reality where you can learn whatever you want, whenever you want and at you pace.\nWhat I didn’t find yet - on web2.0 - is how to fail. How to fail programmatically, periodically and frequently. As you can image, I failed a lot and hope to keep failing at high rate.\nFor me, failing is the essence of learning, the essence of success. The Lhumann’s indicator 1 of productivity was permanent notes produced per day. The Bottoni’s indicator 2 of success is a simple counter of failings: greater the better.\nEverything started long time ago, maybe 6 years ago. I was trying to learning Machine Learning the old way: 1. collected all theoretical books; 2. collected all theoretical courses; 3. started the journey; 4. felt uncomfortable; 5. stopped; 6. and repeat the process with a slightly different theoretical book and course.\nThat’s guided me here.\n5 months ago I restarted again. The approach to Machine Learning was gradually different and this seems to be very efficient and effective.\nI followed FastAI course. In one week I completed all lectures and developed a simple system: - a box classifier which identified the kind of box with an accuracy of 97%; - a web app, which took a picture, sent it to the model and showed the result; - everything deployed in test environment.\nHope to show it as soon as my current company will make it possible.\nIt was funny, I accomplished more in that week then in 6 years of try and fail. But everything died again.\nI got overwhelmed at work. It pushed me to say goodbye to Machine Learning. Another KO. You know, when something really interesting you, one day you succeed. That day is not today.\nAfter other 5 months, today, I’m back to the mean. To the normality 3. I understood that life is not easy and is not linear. At the time I’m writing both my sons got Covid19, high fever, zero sleep. I understood to embrace those things, the gifts that life give to us 4.\nI’m ready to start again, from chapter 0."
-  },
-  {
-    "objectID": "posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html#whats-my-next-step",
-    "href": "posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html#whats-my-next-step",
-    "title": "Learning AI And Failing Miserably",
-    "section": "What’s my next step?",
-    "text": "What’s my next step?\nI restarted ML journey and I’m happy.\nDuring those years full of failures, I sharpened my skills, where I improved a lot, I think. From note taking to programming. From learning to memorizing. All is summarized in: be more dynamic and less static.\nLet me pretend, for a moment, that I will accomplish the following steps.\nTo be able to mastering Machine Learning with FastAI approach I need to be a practitioner. To be a practitioner a have to do lots practice. To do lots practice a have to spend extra hours. To be able to spend extra hours I have to be motivated. To be motivated I have to be persistent. To be persistent I have to enjoy it.\nThat’s the chaining rule of the heaven.\n\nI listen to everything on 1x speed. I admire all you folks that do 1.5x or 2x, but my brain needs time to process the ideas. Sometimes I pause the podcast/audiobook & just reflect on a single sentence for a while. I used to think I need to improve this but now I just accept it.\n\nI’m happy to read this from Lex Fridman. It means I have to watch Jeremy at 0.5x divided by few tens speed.\nThe approach to learning, as said before, seems working. So that’s what I’ll do: 1. Review last notes, if there’s something 2. Watch lecture, first iteration. All in one breath 3. Watch lecture, second iteration. Pausing as needed, experimenting, exploring and building (lots of -ing) 4. Going through FastAI book, kaggle notes and random links 5 5. Do questionnaire and find weakness 6. Focus on a project, only one. Do it well\nThat’s wonderful approach doesn’t come from my neurons but are suggested by Radek Osmulski’s book and Jeremy Howard tips. Yes, it’s strange, I bought a book. I’m not used to.\nAdditional and personal trick to force me studying is live streaming my session study. Embarrassing and funny moment will face.\nDeadline: end of August 2022.\nI can infinitely try to learn ML and get a finite result, as per Zeno’s Paradox.\nI’ll keep you updated.\nNow let’s start. Again."
-  },
-  {
-    "objectID": "posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html#footnotes",
-    "href": "posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html#footnotes",
-    "title": "Learning AI And Failing Miserably",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nLuhmann wrote prolifically, with more than 70 books and nearly 400 scholarly articles published on a variety of subjects↩︎\nMe and I wrote only this blog post↩︎\nStandard deviation equals to zero↩︎\nScientists defined it as Entropy↩︎\nAlso known as syntopic reading↩︎"
-  },
-  {
-    "objectID": "posts/2022-12-13-fallen-empire.html",
-    "href": "posts/2022-12-13-fallen-empire.html",
-    "title": "Quote from Karpathy",
-    "section": "",
-    "text": "Karpathy, 2022"
-  },
-  {
-    "objectID": "posts/2022-12-13-fallen-empire.html#reference",
-    "href": "posts/2022-12-13-fallen-empire.html#reference",
-    "title": "Quote from Karpathy",
-    "section": "",
-    "text": "Karpathy, 2022"
   }
 ]

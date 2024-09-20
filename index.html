@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -48,7 +48,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -95,16 +102,43 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">frabot</span>
     </a>
@@ -116,23 +150,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/B8ni" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/B8ni"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/bot_fra" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/bot_fra"> <i class="bi bi-twitter" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -145,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
     
   
-  <div class="quarto-title-meta">
+  <div class="quarto-title-meta column-page">
 
       
     
@@ -167,29 +201,30 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="wiki,hexagonal,architecture" data-listing-date-sort="1700607600000" data-listing-file-modified-sort="1700672858266" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="0" data-categories="paper,machine,learning,soccer,berrar,2024" data-listing-date-sort="1726696800000" data-listing-file-modified-sort="1726820903095" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1132">
 <div class="thumbnail">
-<p><a href="./posts/2023-11-22-hexagonal-architecture.html"> <p class="card-img-top"><img src="https://miro.medium.com/max/1400/1*kEomMfgNPu1srEAH7-Z_LA.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/paper-berrar-2024.html" class="no-external"></a></p><a href="./posts/paper-berrar-2024.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/paper-berrar-2024.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-11-22-hexagonal-architecture.html">
 <h3 class="no-anchor listing-title">
-Hexagonal Architecture
+<a href="./posts/paper-berrar-2024.html" class="no-external">Paper Berrar 2024</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/paper-berrar-2024.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Wikibot Hexagonal Architecture.</p>
+<a href="./posts/paper-berrar-2024.html" class="no-external">A Data- and Knowledge-Driven Framework for Developing Machine Learning Models to Predict Soccer Match Outcomes.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-11-22-hexagonal-architecture.html">
+<a href="./posts/paper-berrar-2024.html" class="no-external">
 <div class="listing-date">
-Nov 22, 2023
+Sep 19, 2024
 </div>
 <div class="listing-author">
 Francesco Bottoni
@@ -197,25 +232,25 @@ Francesco Bottoni
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="odds,margin" data-listing-date-sort="1692309600000" data-listing-file-modified-sort="1698920427867" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="1" data-categories="odds,margin" data-listing-date-sort="1692309600000" data-listing-file-modified-sort="1726245325114" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="167">
 <div class="thumbnail">
-<p><a href="./posts/average-odds-margin.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/average-odds-margin.html" class="no-external"></a></p><a href="./posts/average-odds-margin.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/average-odds-margin.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/average-odds-margin.html">
 <h3 class="no-anchor listing-title">
-Finding the Average Odds Margin
+<a href="./posts/average-odds-margin.html" class="no-external">Finding the Average Odds Margin</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/average-odds-margin.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>How to Mange Odds Margin.</p>
+<a href="./posts/average-odds-margin.html" class="no-external">How to Mange Odds Margin.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/average-odds-margin.html">
+<a href="./posts/average-odds-margin.html" class="no-external">
 <div class="listing-date">
 Aug 18, 2023
 </div>
@@ -225,25 +260,25 @@ Francesco Bottoni
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="startup,2023" data-listing-date-sort="1691791200000" data-listing-file-modified-sort="1691846547170" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="2" data-categories="startup,2023" data-listing-date-sort="1691791200000" data-listing-file-modified-sort="1726245325106" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="128">
 <div class="thumbnail">
-<p><a href="./posts/2023-08-12-circus-performer.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2023-08-12-circus-performer.html" class="no-external"></a></p><a href="./posts/2023-08-12-circus-performer.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2023-08-12-circus-performer.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-08-12-circus-performer.html">
 <h3 class="no-anchor listing-title">
-Be Like a Circus Performer
+<a href="./posts/2023-08-12-circus-performer.html" class="no-external">Be Like a Circus Performer</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2023-08-12-circus-performer.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Embrace the Circus Performer Mentality.</p>
+<a href="./posts/2023-08-12-circus-performer.html" class="no-external">Embrace the Circus Performer Mentality.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-08-12-circus-performer.html">
+<a href="./posts/2023-08-12-circus-performer.html" class="no-external">
 <div class="listing-date">
 Aug 12, 2023
 </div>
@@ -253,25 +288,25 @@ Francesco Bottoni
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="goals,2023" data-listing-date-sort="1674514800000" data-listing-file-modified-sort="1698952530827" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="3" data-categories="goals,2023" data-listing-date-sort="1674514800000" data-listing-file-modified-sort="1726245325106" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="56">
 <div class="thumbnail">
-<p><a href="./posts/2023-01-24-reading-book-2023.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2023-01-24-reading-book-2023.html" class="no-external"></a></p><a href="./posts/2023-01-24-reading-book-2023.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2023-01-24-reading-book-2023.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-01-24-reading-book-2023.html">
 <h3 class="no-anchor listing-title">
-Goal n.&nbsp;8 - Read 12 books
+<a href="./posts/2023-01-24-reading-book-2023.html" class="no-external">Goal n.&nbsp;8 - Read 12 books</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2023-01-24-reading-book-2023.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Updates on Goal n.8 - Reading 12 books.</p>
+<a href="./posts/2023-01-24-reading-book-2023.html" class="no-external">Updates on Goal n.8 - Reading 12 books.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-01-24-reading-book-2023.html">
+<a href="./posts/2023-01-24-reading-book-2023.html" class="no-external">
 <div class="listing-date">
 Jan 24, 2023
 </div>
@@ -281,25 +316,25 @@ Francesco Bottoni
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="goals,2023" data-listing-date-sort="1672182000000" data-listing-file-modified-sort="1691845383087" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="4" data-categories="goals,2023" data-listing-date-sort="1672182000000" data-listing-file-modified-sort="1726245325106" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="154">
 <div class="thumbnail">
-<p><a href="./posts/2022-12-28-goals-of-2023.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2022-12-28-goals-of-2023.html" class="no-external"></a></p><a href="./posts/2022-12-28-goals-of-2023.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2022-12-28-goals-of-2023.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-12-28-goals-of-2023.html">
 <h3 class="no-anchor listing-title">
-2023 Goals
+<a href="./posts/2022-12-28-goals-of-2023.html" class="no-external">2023 Goals</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-12-28-goals-of-2023.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>My 20 tasks to achieve in 2023.</p>
+<a href="./posts/2022-12-28-goals-of-2023.html" class="no-external">My 20 tasks to achieve in 2023.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-12-28-goals-of-2023.html">
+<a href="./posts/2022-12-28-goals-of-2023.html" class="no-external">
 <div class="listing-date">
 Dec 28, 2022
 </div>
@@ -309,25 +344,25 @@ Francesco Bottoni
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="quote,bottoni" data-listing-date-sort="1670886000000" data-listing-file-modified-sort="1691845383087" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="5" data-categories="quote,karpathy" data-listing-date-sort="1670886000000" data-listing-file-modified-sort="1726245325106" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="3">
 <div class="thumbnail">
-<p><a href="./posts/2022-12-13-dont-afraid-to-build.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2022-12-13-fallen-empire.html" class="no-external"></a></p><a href="./posts/2022-12-13-fallen-empire.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2022-12-13-fallen-empire.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-12-13-dont-afraid-to-build.html">
 <h3 class="no-anchor listing-title">
-Quote from Bottoni
+<a href="./posts/2022-12-13-fallen-empire.html" class="no-external">Quote from Karpathy</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-12-13-fallen-empire.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Don’t be afraid to build.</p>
+<a href="./posts/2022-12-13-fallen-empire.html" class="no-external">All Fallen Empires begin the game in Sleeping status. Despite their complete development and immense power, the Fallen Empires will remain passive, staying within their borders and taking no action unless provoked.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-12-13-dont-afraid-to-build.html">
+<a href="./posts/2022-12-13-fallen-empire.html" class="no-external">
 <div class="listing-date">
 Dec 13, 2022
 </div>
@@ -337,25 +372,25 @@ Francesco Bottoni
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="quote,karpathy" data-listing-date-sort="1670886000000" data-listing-file-modified-sort="1691845383087" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="6" data-categories="quote,bottoni" data-listing-date-sort="1670886000000" data-listing-file-modified-sort="1726245325106" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="3">
 <div class="thumbnail">
-<p><a href="./posts/2022-12-13-fallen-empire.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2022-12-13-dont-afraid-to-build.html" class="no-external"></a></p><a href="./posts/2022-12-13-dont-afraid-to-build.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2022-12-13-dont-afraid-to-build.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-12-13-fallen-empire.html">
 <h3 class="no-anchor listing-title">
-Quote from Karpathy
+<a href="./posts/2022-12-13-dont-afraid-to-build.html" class="no-external">Quote from Bottoni</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-12-13-dont-afraid-to-build.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>All Fallen Empires begin the game in Sleeping status. Despite their complete development and immense power, the Fallen Empires will remain passive, staying within their borders and taking no action unless provoked.</p>
+<a href="./posts/2022-12-13-dont-afraid-to-build.html" class="no-external">Don’t be afraid to build.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-12-13-fallen-empire.html">
+<a href="./posts/2022-12-13-dont-afraid-to-build.html" class="no-external">
 <div class="listing-date">
 Dec 13, 2022
 </div>
@@ -365,25 +400,25 @@ Francesco Bottoni
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="wiki,neural,network" data-listing-date-sort="1670799600000" data-listing-file-modified-sort="1691845383087" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="7" data-categories="wiki,neural,network" data-listing-date-sort="1670799600000" data-listing-file-modified-sort="1726245325106" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="419">
 <div class="thumbnail">
-<p><a href="./posts/2022-12-12-neural-network.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2022-12-12-neural-network.html" class="no-external"></a></p><a href="./posts/2022-12-12-neural-network.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2022-12-12-neural-network.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-12-12-neural-network.html">
 <h3 class="no-anchor listing-title">
-Neural Network
+<a href="./posts/2022-12-12-neural-network.html" class="no-external">Neural Network</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-12-12-neural-network.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Wikibot Neural Network.</p>
+<a href="./posts/2022-12-12-neural-network.html" class="no-external">Wikibot Neural Network.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-12-12-neural-network.html">
+<a href="./posts/2022-12-12-neural-network.html" class="no-external">
 <div class="listing-date">
 Dec 12, 2022
 </div>
@@ -393,25 +428,25 @@ Francesco Bottoni
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="quote,Sutskever" data-listing-date-sort="1669935600000" data-listing-file-modified-sort="1691845383087" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="8" data-categories="quote,Sutskever" data-listing-date-sort="1669935600000" data-listing-file-modified-sort="1726245325106" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="4">
 <div class="thumbnail">
-<p><a href="./posts/2022-12-02-artificial-neurons.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2022-12-02-artificial-neurons.html" class="no-external"></a></p><a href="./posts/2022-12-02-artificial-neurons.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2022-12-02-artificial-neurons.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-12-02-artificial-neurons.html">
 <h3 class="no-anchor listing-title">
-Quote from Ilya Sutskever
+<a href="./posts/2022-12-02-artificial-neurons.html" class="no-external">Quote from Ilya Sutskever</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-12-02-artificial-neurons.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Deep learning is based on the audacious conjecture that biological neurons and artificial neurons are not that different. Its success to date is evidence for this belief.</p>
+<a href="./posts/2022-12-02-artificial-neurons.html" class="no-external">Deep learning is based on the audacious conjecture that biological neurons and artificial neurons are not that different. Its success to date is evidence for this belief.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-12-02-artificial-neurons.html">
+<a href="./posts/2022-12-02-artificial-neurons.html" class="no-external">
 <div class="listing-date">
 Dec 2, 2022
 </div>
@@ -421,25 +456,25 @@ Francesco Bottoni
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="project,random,forest,multi,class,classification" data-listing-date-sort="1668639600000" data-listing-file-modified-sort="1691845383107" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11">
+<div class="quarto-post image-right" data-index="9" data-categories="project,random,forest,multi,class,classification" data-listing-date-sort="1668639600000" data-listing-file-modified-sort="1726245325122" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2007">
 <div class="thumbnail">
-<p><a href="./posts/random-forest-guy/2022-11-17-the-random-forest-guy.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/random-forest-guy/2022-11-17-the-random-forest-guy.html" class="no-external"></a></p><a href="./posts/random-forest-guy/2022-11-17-the-random-forest-guy.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/random-forest-guy/2022-11-17-the-random-forest-guy.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/random-forest-guy/2022-11-17-the-random-forest-guy.html">
 <h3 class="no-anchor listing-title">
-The Random Forest Guy
+<a href="./posts/random-forest-guy/2022-11-17-the-random-forest-guy.html" class="no-external">The Random Forest Guy</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/random-forest-guy/2022-11-17-the-random-forest-guy.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Aluminium Scrap Box Classification.</p>
+<a href="./posts/random-forest-guy/2022-11-17-the-random-forest-guy.html" class="no-external">Aluminium Scrap Box Classification.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/random-forest-guy/2022-11-17-the-random-forest-guy.html">
+<a href="./posts/random-forest-guy/2022-11-17-the-random-forest-guy.html" class="no-external">
 <div class="listing-date">
 Nov 17, 2022
 </div>
@@ -449,25 +484,25 @@ Francesco Bottoni
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="wiki,confusion,matrix" data-listing-date-sort="1668466800000" data-listing-file-modified-sort="1691845383095" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="10" data-categories="wiki,confusion,matrix" data-listing-date-sort="1668466800000" data-listing-file-modified-sort="1726245325114" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="199">
 <div class="thumbnail">
-<p><a href="./posts/confusion-matrix/2022-11-15-confusion-matrix.html"> <p class="card-img-top"><img src="posts/confusion-matrix/Pasted image 20221115151024.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/confusion-matrix/2022-11-15-confusion-matrix.html" class="no-external"></a></p><a href="./posts/confusion-matrix/2022-11-15-confusion-matrix.html" class="no-external">
+<p class="card-img-top"><img src="posts/confusion-matrix/Pasted image 20221115151024.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/confusion-matrix/2022-11-15-confusion-matrix.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/confusion-matrix/2022-11-15-confusion-matrix.html">
 <h3 class="no-anchor listing-title">
-Confusion Matrix
+<a href="./posts/confusion-matrix/2022-11-15-confusion-matrix.html" class="no-external">Confusion Matrix</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/confusion-matrix/2022-11-15-confusion-matrix.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Wikibot Confusion Matrix.</p>
+<a href="./posts/confusion-matrix/2022-11-15-confusion-matrix.html" class="no-external">Wikibot Confusion Matrix.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/confusion-matrix/2022-11-15-confusion-matrix.html">
+<a href="./posts/confusion-matrix/2022-11-15-confusion-matrix.html" class="no-external">
 <div class="listing-date">
 Nov 15, 2022
 </div>
@@ -477,25 +512,25 @@ Francesco Bottoni
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="fastai" data-listing-date-sort="1666735200000" data-listing-file-modified-sort="1691845383087" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12">
+<div class="quarto-post image-right" data-index="11" data-categories="fastai" data-listing-date-sort="1666735200000" data-listing-file-modified-sort="1726245325106" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2361">
 <div class="thumbnail">
-<p><a href="./posts/aluminium-scrap-box/2022-10-26-aluminium-scraps-box-weight-random-forest-post.html"> <p class="card-img-top"><img src="posts/aluminium-scrap-box/forrest-gamp.png" title="Forrest Gump in a Random Forest" class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/aluminium-scrap-box/2022-10-26-aluminium-scraps-box-weight-random-forest-post.html" class="no-external"></a></p><a href="./posts/aluminium-scrap-box/2022-10-26-aluminium-scraps-box-weight-random-forest-post.html" class="no-external">
+<p class="card-img-top"><img src="posts/aluminium-scrap-box/forrest-gamp.png" title="Forrest Gump in a Random Forest" class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/aluminium-scrap-box/2022-10-26-aluminium-scraps-box-weight-random-forest-post.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/aluminium-scrap-box/2022-10-26-aluminium-scraps-box-weight-random-forest-post.html">
 <h3 class="no-anchor listing-title">
-How Random Forest Can Empower A Plant
+<a href="./posts/aluminium-scrap-box/2022-10-26-aluminium-scraps-box-weight-random-forest-post.html" class="no-external">How Random Forest Can Empower A Plant</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/aluminium-scrap-box/2022-10-26-aluminium-scraps-box-weight-random-forest-post.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Practical use case of Random Forest in Industrial environment.</p>
+<a href="./posts/aluminium-scrap-box/2022-10-26-aluminium-scraps-box-weight-random-forest-post.html" class="no-external">Practical use case of Random Forest in Industrial environment.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/aluminium-scrap-box/2022-10-26-aluminium-scraps-box-weight-random-forest-post.html">
+<a href="./posts/aluminium-scrap-box/2022-10-26-aluminium-scraps-box-weight-random-forest-post.html" class="no-external">
 <div class="listing-date">
 Oct 26, 2022
 </div>
@@ -505,25 +540,25 @@ Francesco Bottoni
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="fastai" data-listing-date-sort="1659823200000" data-listing-file-modified-sort="1691845383095" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="12" data-categories="fastai" data-listing-date-sort="1659823200000" data-listing-file-modified-sort="1726245325114" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="743">
 <div class="thumbnail">
-<p><a href="./posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html"> <p class="card-img-top"><img src="posts/failing-learning-ai/fail-learning.png" title="Latest full productivity dekstop setup" class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html" class="no-external"></a></p><a href="./posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html" class="no-external">
+<p class="card-img-top"><img src="posts/failing-learning-ai/fail-learning.png" title="Latest full productivity dekstop setup" class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html">
 <h3 class="no-anchor listing-title">
-Learning AI And Failing Miserably
+<a href="./posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html" class="no-external">Learning AI And Failing Miserably</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>A minimal guide of failing learning AI.</p>
+<a href="./posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html" class="no-external">A minimal guide of failing learning AI.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html">
+<a href="./posts/failing-learning-ai/2022-08-07-fail-learning-ai-post.html" class="no-external">
 <div class="listing-date">
 Aug 7, 2022
 </div>
@@ -617,10 +652,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/B8ni\.github\.io\/blog\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -630,8 +682,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -643,7 +704,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -687,6 +871,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -712,6 +897,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -772,6 +983,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
